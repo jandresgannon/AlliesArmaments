@@ -1,0 +1,295 @@
+dispnum3	incidnum3	version	change
+4182	4182397	2.1	End Day changed to 30.
+4182	4182421	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4182	4182443	2.1	End Month changed to 6. End Day changed to 29.
+4182	4182446	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4182	4182447	2.1	End Day changed to 9.
+4182	4182454	2.1	End Day changed to 29.
+4182	4182460	2.1	End Day changed to 22.
+4182	4182473	2.1	End Day changed to 23.
+4182	4182476	2.1	Action changed to 16 Attack. HostLev changed to 4 Use of force.
+4182	4182484	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4242	4242004	2.1	Action changed to 7 Show of force.
+4242	4242007	2.1	Action changed to 10 Mobilization.
+4273	4273168	2.1	Start Month changed to 10. Start Day changed to -9. End Month changed to 10. End Day changed to -9.
+4277	4277011	2.1	Start Day changed to 17. End Day changed to 17.
+4277	4277012	2.1	Start Day changed to 17. End Day changed to 17.
+4277	4277021	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4277	4277032	2.1	Start Day changed to 18. End Day changed to 18.
+4277	4277033	2.1	Start Day changed to 18. End Day changed to 18.
+4277	4277037	2.1	Fatalities changed to 0 None. Fatalpre changed to 0.
+4277	4277052	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4277	4277057	2.1	Start Day changed to 27. End Day changed to 28.
+4277	4277075	2.1	Start Day changed to 12.
+4282	4282008	2.1	Start Day changed to 4. End Day changed to 4.
+4282	4282019	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4282	4282020	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4282	4282028	2.1	Start Day changed to -9. End Day changed to -9.
+4282	4282031	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4320	4320015	2.1	End Day changed to 20.
+4325	4325004	2.1	Fatalities changed to 0 None. Fatalpre changed to 0.
+4325	4325007	2.1	Action changed to 1. HostLev changed to 3.
+4325	4325008	2.1	Start Day changed to -9. End Day changed to -9.
+4325	4325009	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4325	4325010	2.1	Fatalities changed to 0 None. Fatalpre changed to 0.
+4325	4325012	2.1	End Month changed to 9.
+4325	4325013	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4345	4345003	2.1	End Day changed to 29. Action changed to 15 Seizure.
+4347	4347001	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4347	4347004	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4349	4349001	2.1	Action changed to 10 Mobilization.
+4349	4349002	2.1	Action changed to 7 Show of force.
+4349	4349004	2.1	Fatalities changed to 4 251-500 deaths.
+4350	4350001	2.1	Fatalities changed to 0 None. Fatalpre changed to 0.
+4351	4351001	2.1	Action changed to 7 Show of force.
+4353	4353001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4354	4354001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4356	4356001	2.1	Start Month changed to 8. Start Day changed to -9. End Month changed to 8. End Day changed to -9.
+4356	4356002	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4356	4356003	2.1	Start Day changed to -9. End Day changed to -9.
+4356	4356004	2.1	Start Day changed to 7. End Day changed to -9.
+4356	4356005	2.1	Start Month changed to 3. Start Day changed to 14. End Month changed to 3. End Day changed to 14.
+4358	4358001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4361	4361001	2.1	Action changed to 7 Show of force.
+4364	4364001	2.1	Action changed to 7 Show of force.
+4366	4366001	2.1	Start Day changed to -9.
+4366	4366005	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4366	4366006	2.1	Start Day changed to 30. End Day changed to 30. Action changed to .
+4366	4366007	2.1	Start Month changed to 11. Start Day changed to -9.
+4366	4366008	2.1	Start Day changed to 7. End Day changed to 7.
+4366	4366009	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4367	4367002	2.1	Action changed to 10 Mobilization.
+4368	4368001	2.1	Action changed to 7 Show of force.
+4369	4369001	2.1	Start Day changed to 12. End Day changed to 12.
+4371	4371002	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4374	4374001	2.1	Fatalities changed to 1 1-25 deaths. Fatalpre changed to 1.
+4381	4381001	2.1	Action changed to 3 Threat to occupy territory.
+4382	4382001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4384	4384005	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4386	4386001	2.1	Start Day changed to 27. End Day changed to 27.
+4387	4387001	2.1	Start Day changed to 17.
+4387	4387002	2.1	Start Day changed to -9.
+4390	4390001	2.1	Start Day changed to -9. End Day changed to -9. Fatalities changed to -9 Missing.
+4391	4391001	2.1	Start Day changed to 9. End Day changed to 9. Action changed to 8 Alert.
+4399	4399002	2.1	Fatalities changed to 1 1-25 deaths. Fatalpre changed to 1.
+4401	4401004	2.1	Action changed to 12 Border violation. HostLev changed to 3 Display of force.
+4401	4401006	2.1	Start Day changed to -9. End Day changed to -9.
+4403	4403002	2.1	Fatalities changed to 0 None. Fatalpre changed to 0.
+4403	4403003	2.1	Fatalities changed to 0 None. Fatalpre changed to 0.
+4404	4404002	2.1	Start Day changed to 12. End Day changed to 12.
+4407	4407002	2.1	Start Day changed to 27.
+4408	4408001	2.1	Fatalities changed to 0. Fatalpre changed to 0.
+4410	4410001	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4410	4410002	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4411	4411001	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4414	4414030	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4414	4414038	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4414	4414040	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4414	4414053	2.1	Action changed to 16 Attack.
+4414	4414054	2.1	Fatalities changed to 1 1-25 deaths. Fatalpre changed to 1.
+4414	4414055	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4414	4414057	2.1	Start Day changed to 17. End Day changed to 17. Action changed to 11 Fortify border.
+4414	4414058	2.1	Start Day changed to 11. End Day changed to 11.
+4414	4414061	2.1	Start Month changed to 11. Start Day changed to 2. End Month changed to 11. End Day changed to 2.
+4414	4414063	2.1	Start Month changed to 10. End Month changed to 10.
+4414	4414065	2.1	Start Day changed to 17. End Day changed to 17.
+4414	4414069	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4414	4414070	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4414	4414078	2.1	Start Day changed to 9.
+4414	4414080	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4414	4414083	2.1	Start Day changed to 23. End Day changed to 23.
+4414	4414099	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4415	4415001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4417	4417001	2.1	Start Day changed to 25. End Day changed to 25.
+4420	4420001	2.1	Start Day changed to 27. End Day changed to 27.
+4422	4422001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4427	4427002	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4428	4428001	2.1	Start Day changed to 21. End Day changed to 21.
+4428	4428002	2.1	Start Day changed to 21. End Day changed to 21.
+4431	4431006	2.1	End Day changed to 21.
+4431	4431007	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4435	4435001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4435	4435002	2.1	Start Day changed to 26. End Day changed to 26.
+4435	4435003	2.1	Start Day changed to 26. End Day changed to 26.
+4435	4435004	2.1	Start Day changed to 6. End Day changed to 6.
+4435	4435005	2.1	Start Day changed to 6. End Day changed to 6.
+4435	4435007	2.1	Start Day changed to 13. End Day changed to 13.
+4436	4436003	2.1	Start Day changed to 21. End Day changed to 21.
+4436	4436013	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4436	4436016	2.1	Action changed to 12 Border violation.
+4436	4436017	2.1	End Day changed to 4.
+4436	4436020	2.1	End Day changed to 2. Action changed to 12 Border violation. HostLev changed to 3 Display of force.
+4437	4437001	2.1	Start Day changed to 26. End Day changed to 26.
+4438	4438001	2.1	Start Day changed to -9. End Day changed to -9.
+4441	4441001	2.1	Action changed to 7 Show of force.
+4444	4444001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4448	4448001	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4449	4449001	2.1	End Day changed to 5.
+4454	4454001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4455	4455001	2.1	Start Day changed to 27. End Month changed to 2. End Day changed to 27.
+4455	4455002	2.1	Start Month changed to 2. Start Day changed to 27. End Month changed to 2. End Day changed to 27.
+4455	4455003	2.1	Action changed to 8 Alert.
+4455	4455004	2.1	End Month changed to 4. End Day changed to 2.
+4456	4456001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4457	4457002	2.1	Action changed to 16 Attack. HostLev changed to 4 Use of force.
+4457	4457003	2.1	Action changed to 16 Attack. HostLev changed to 4 Use of force.
+4465	4465001	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4465	4465002	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4465	4465003	2.1	Start Day changed to -9. End Day changed to -9.
+4466	4466001	2.1	Start Day changed to -9. End Day changed to -9.
+4467	4467002	2.1	Action changed to 7 Show of force.
+4470	4470001	2.1	Start Day changed to 18. End Day changed to 18.
+4478	4478003	2.1	Start Day changed to 18.
+4483	4483013	2.1	Start Day changed to 27. End Day changed to 28.
+4483	4483014	2.1	Start Day changed to 27. End Day changed to 27.
+4483	4483015	2.1	Start Day changed to 27. End Day changed to 28.
+4483	4483016	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4483	4483017	2.1	Start Day changed to 2. End Day changed to 2.
+4483	4483018	2.1	Start Day changed to 2. End Day changed to 2.
+4483	4483019	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4483	4483023	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4483	4483025	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4483	4483026	2.1	End Day changed to 9.
+4483	4483027	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4483	4483030	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4483	4483031	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4483	4483034	2.1	Start Day changed to 28. End Month changed to 12. End Day changed to 1.
+4483	4483035	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4483	4483038	2.1	End Day changed to 26.
+4484	4484001	2.1	Start Day changed to 29. End Day changed to 29.
+4486	4486001	2.1	Start Day changed to 8. End Day changed to 8.
+4488	4488002	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4488	4488004	2.1	Start Day changed to 11.
+4491	4491002	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4491	4491003	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4493	4493001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4494	4494001	2.1	Start Month changed to 6. Start Day changed to 13.
+4497	4497001	2.1	End Day changed to 23.
+4498	4498001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4499	4499001	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4499	4499002	2.1	Start Day changed to 1. End Day changed to 1. Action changed to .
+4502	4502001	2.1	Action changed to 16 Attack. HostLev changed to 4 Use of force.
+4510	4510003	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4512	4512001	2.1	Start Day changed to 21. End Day changed to 21.
+4514	4514001	2.1	Fatalities changed to 0. Fatalpre changed to 0.
+4522	4522001	2.1	Start Day changed to 10. End Day changed to 10.
+4522	4522002	2.1	Start Day changed to 10. End Day changed to 13.
+4524	4524003	2.1	Start Month changed to 12. Start Day changed to 30. Start Year changed to 2004. End Month changed to 12. End Day changed to 30. End Year changed to 2004.
+4525	4525001	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4525	4525002	2.1	Fatalities changed to 1 1-25 deaths. Fatalpre changed to 1.
+4526	4526001	2.1	Fatalities changed to 1 1-25 deaths. Fatalpre changed to 3.
+4528	4528001	2.1	Start Day changed to -9. End Day changed to -9.
+4533	4533002	2.1	Action changed to 12 Border violation. HostLev changed to 3 Display of force.
+4533	4533013	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4533	4533020	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4533	4533021	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4533	4533027	2.1	Start Day changed to 13. End Day changed to 13.
+4533	4533029	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4533	4533030	2.1	Action changed to 7 Show of force.
+4535	4535002	2.1	End Day changed to 28.
+4536	4536005	2.1	Start Day changed to 26.
+4536	4536008	2.1	End Month changed to 5. End Day changed to 26. Fatalities changed to 1 1-25 deaths. Fatalpre changed to 1.
+4536	4536011	2.1	Start Day changed to 17. End Day changed to 17.
+4536	4536012	2.1	Start Day changed to 16. End Day changed to 16.
+4536	4536013	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4537	4537004	2.1	Start Day changed to -9. End Day changed to -9.
+4537	4537006	2.1	Start Day changed to 25. End Day changed to 25.
+4537	4537008	2.1	Fatalities changed to 0 None. Fatalpre changed to 0.
+4537	4537012	2.1	End Day changed to 21. Fatalities changed to 0 None. Fatalpre changed to 0.
+4537	4537016	2.1	Start Day changed to 28.
+4537	4537019	2.1	Start Day changed to 1. End Day changed to 1.
+4537	4537023	2.1	Start Day changed to 16. End Day changed to 16.
+4537	4537024	2.1	Start Day changed to 25. End Month changed to 9. End Day changed to 25.
+4537	4537028	2.1	End Day changed to 5.
+4542	4542001	2.1	Start Day changed to 27. End Day changed to 27.
+4545	4545021	2.1	Fatalities changed to 1125. Fatalpre changed to 1.
+4547	4547001	2.1	Start Day changed to 11. End Day changed to 11. Action changed to 17 Clash.
+4547	4547004	2.1	End Day changed to 14.
+4549	4549001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4551	4551001	2.1	Start Day changed to 13.
+4551	4551002	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4552	4552001	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4552	4552002	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4552	4552004	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4552	4552005	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4552	4552009	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4552	4552010	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4552	4552011	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4552	4552025	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4552	4552027	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4552	4552030	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4552	4552033	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4552	4552034	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4553	4553001	2.1	Start Day changed to -9. End Day changed to -9.
+4553	4553009	2.1	Action changed to 11 Fortify border.
+4555	4555001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4555	4555031	2.1	Start Day changed to 15. End Day changed to 15. Action changed to 16 Attack.
+4555	4555032	2.1	Start Month changed to 8. End Month changed to 8.
+4555	4555033	2.1	Fatalities changed to 1 1-25 deaths. Fatalpre changed to 1.
+4555	4555035	2.1	Start Month changed to 8. Start Day changed to 30. End Month changed to 8. End Day changed to 30.
+4555	4555036	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4555	4555037	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4559	4559002	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4564	4564004	2.1	Start Day changed to -9. End Day changed to -9.
+4566	4566003	2.1	Start Day changed to 16. End Day changed to 18.
+4567	4567002	2.1	Start Day changed to 2. End Day changed to 2.
+4567	4567005	2.1	Start Day changed to 27. End Day changed to 27.
+4568	4568001	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4571	4571001	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4571	4571002	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4572	4572001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4575	4575001	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575002	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575003	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575004	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575005	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575006	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575007	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575008	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575009	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575010	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575011	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4575	4575012	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4576	4576004	2.1	Start Day changed to 2. End Day changed to 2.
+4577	4577002	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4578	4578003	2.1	Start Day changed to 7. End Day changed to 7.
+4581	4581001	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581002	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581003	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581004	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581005	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581007	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581008	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4581	4581009	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581010	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581011	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581012	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581013	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581015	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581017	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581018	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581019	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581020	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581022	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581023	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581024	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581025	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581026	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581027	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4581	4581028	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4582	4582001	2.1	Start Month changed to 1. Start Day changed to 31. End Month changed to 1. End Day changed to 31.
+4584	4584003	2.1	Action changed to 12 Border violation. HostLev changed to 3 Display of force.
+4585	4585007	2.1	Start Day changed to 27. End Day changed to 27.
+4585	4585009	2.1	Start Day changed to 27. End Day changed to 27.
+4585	4585025	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4585	4585027	2.1	Fatalities changed to 1 1-25 deaths. Fatalpre changed to 2.
+4587	4587001	2.1	Drop incident. A review of news sources suggest this was not a militarized incident.
+4587	4587002	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4588	4588010	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4588	4588015	2.1	Drop incident. A news story providing evidence for this incident could not be found.
+4591	4591002	2.1	Start Day changed to -9. End Day changed to -9.
+4591	4591003	2.1	Start Day changed to -9. End Day changed to -9.
+4593	4593007	2.1	Action changed to 12 Border violation.
+4596	4596002	2.1	Start Day changed to -9. End Day changed to -9.
+4598	4598001	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.
+4598	4598003	2.1	Drop incident. Agreements between the United States and Pakistan imply that this was not a militarized incident according to CoW coding rules.

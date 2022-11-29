@@ -1,0 +1,12 @@
+gml-[version]-change-summary-disp.txt: A summary of new changes at the dispute-level in the current version.
+gml-[version]-change-summary-part.txt: A summary of new changes at the participant-level in the current version.
+gml-[version]-change-summary-incid.txt: A summary of new changes at the incident-level in the current version. This is new as of version 2.1.
+gml-[version]-change-summary-incidpart.txt: A summary of new changes at the incident-participant-level in the current version. This is new as of version 2.1.
+gml-mida-[version].csv: dispute-level GML MID data, forked from CoW’s version 4.01.
+gml-midb-[version].csv: participant-level GML MID data, forked from CoW’s version 4.01.
+gml-midi-[version].csv: incident-level GML MID data, forked from CoW’s version 4.01. This is new as of version 2.1.
+gml-midip-[version].csv: incident-participant-level GML MID data, forked from CoW’s version 4.01. This is new as of version 2.1.
+gml-ddy-disputes-[version].csv: directed dispute-year GML MID data.
+gml-ndy-disputes-[version].csv: nondirected dispute-year GML data.
+gml-ddy-[version].csv: Full directed dyad-year data for use in standard time-series cross-section models for MID onset. This data frame contains no duplicate observations for dyad-years.1 This data set includes all possible dyads no matter the dyad’s political relevance or activity. The user is free to employ case-exclusion rules of her/his choice.
+gml-ndy-[version].csv: Full nondirected dyad-year data. See item above.

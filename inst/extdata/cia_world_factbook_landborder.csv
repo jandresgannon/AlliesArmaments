@@ -1,0 +1,165 @@
+Country Name,Length of Land Boundaries,Length of Land Boundaries Border Countries
+Macau,0.34 km,
+Gibraltar,1.20 km,Spain 1.2 km
+Holy See (Vatican City),3.20 km,Italy 3.2 km
+Monaco,4.40 km,France 4.4 km
+Netherlands Antilles,15.00 km,Saint Martin 15 km
+Saint Martin,15.00 km,Netherlands Antilles (Sint Maarten) 15 km
+Cuba,29.00 km,US Naval Base at Guantanamo Bay 29 km
+Hong Kong,30.00 km,regional border: China 30 km
+San Marino,39.00 km,Italy 39 km
+Qatar,60.00 km,Saudi Arabia 60 km
+Denmark,68.00 km,Germany 68 km
+Liechtenstein,76.00 km,Austria 34.9 km Switzerland 41.1 km
+Andorra,120.30 km,France 56.6 km Spain 63.7 km
+Cyprus,150.40 km,"Akrotiri 47.4 km, Dhekelia 103 km (approximately)"
+Timor-Leste,228.00 km,Indonesia 228 km
+"Korea, South",238.00 km,North Korea 238 km
+Luxembourg,359.00 km,Belgium 148 km France 73 km Germany 138 km
+Dominican Republic,360.00 km,Haiti 360 km
+Haiti,360.00 km,Dominican Republic 360 km
+Ireland,360.00 km,UK 360 km
+United Kingdom,360.00 km,Ireland 360 km
+Brunei,381.00 km,Malaysia 381 km
+West Bank,404.00 km,Israel 307 km Jordan 97 km
+West Bank,404.00 km,Israel 307 km Jordan 97 km
+Lebanon,454.00 km,Israel 79 km Syria 375 km
+Kuwait,462.00 km,Iraq 240 km Saudi Arabia 222 km
+Belize,516.00 km,Guatemala 266 km Mexico 250 km
+Djibouti,516.00 km,Eritrea 109 km Ethiopia 349 km Somalia 58 km
+Swaziland,535.00 km,Mozambique 105 km South Africa 430 km
+Equatorial Guinea,539.00 km,Cameroon 189 km Gabon 350 km
+El Salvador,545.00 km,Guatemala 203 km Honduras 342 km
+Panama,555.00 km,Colombia 225 km Costa Rica 330 km
+Montenegro,625.00 km,Albania 172 km Bosnia and Herzegovina 225 km Croatia 25 km Kosovo 79 km Serbia 124 km
+Estonia,633.00 km,Latvia 343 km Russia 290 km
+Costa Rica,639.00 km,Nicaragua 309 km Panama 330 km
+Albania,717.00 km,Greece 282 km Macedonia 151 km Montenegro 172 km Kosovo 112 km
+Guinea-Bissau,724.00 km,Guinea 386 km Senegal 338 km
+"Gambia, The",740.00 km,Senegal 740 km
+Macedonia [FYROM],766.00 km,Albania 151 km Bulgaria 148 km Greece 246 km Kosovo 159 km Serbia 62 km
+Papua New Guinea,820.00 km,Indonesia 820 km
+United Arab Emirates,867.00 km,Oman 410 km Saudi Arabia 457 km
+Rwanda,893.00 km,Burundi 290 km Democratic Republic of the Congo 217 km Tanzania 217 km Uganda 169 km
+Lesotho,909.00 km,South Africa 909 km
+Sierra Leone,958.00 km,Guinea 652 km Liberia 306 km
+Burundi,974.00 km,Democratic Republic of the Congo 233 km Rwanda 290 km Tanzania 451 km
+Israel,"1,017.00 km",Egypt 266 km Gaza Strip 51 km Jordan 238 km Lebanon 79 km Syria 76 km West Bank 307 km
+Netherlands,"1,027.00 km",Belgium 450 km Germany 577 km
+Bhutan,"1,075.00 km",China 470 km India 605 km
+Slovenia,"1,086.00 km",Austria 330 km Croatia 455 km Hungary 102 km Italy 199 km
+Portugal,"1,214.00 km",Spain 1214 km
+Greece,"1,228.00 km",Albania 282 km Bulgaria 494 km Turkey 206 km Macedonia 246 km
+Nicaragua,"1,231.00 km",Costa Rica 309 km Honduras 922 km
+Armenia,"1,254.00 km",Azerbaijan-proper 566 km Azerbaijan-Naxcivan exclave 221 km Georgia 164 km Iran 35 km Turkey 268 km
+Oman,"1,374.00 km",Saudi Arabia 676 km UAE 410 km Yemen 288 km
+Latvia,"1,382.00 km",Belarus 171 km Estonia 343 km Lithuania 576 km Russia 292 km
+Belgium,"1,385.00 km",France 620 km Germany 167 km Luxembourg 148 km Netherlands 450 km
+Moldova,"1,390.00 km",Romania 450 km Ukraine 940 km
+Tunisia,"1,424.00 km",Algeria 965 km Libya 459 km
+Georgia,"1,461.00 km",Armenia 164 km Azerbaijan 322 km Russia 723 km Turkey 252 km
+Slovakia,"1,474.00 km",Austria 91 km Czech Republic 197 km Hungary 676 km Poland 420 km Ukraine 90 km
+Honduras,"1,520.00 km",Guatemala 256 km El Salvador 342 km Nicaragua 922 km
+Bosnia and Herzegovina,"1,538.00 km",Croatia 932 km Montenegro 249 km Serbia 357 km
+Lithuania,"1,574.00 km",Belarus 680 km Latvia 576 km Poland 91 km Russia (Kaliningrad) 227 km
+Liberia,"1,585.00 km",Guinea 563 km Cote d'Ivoire 716 km Sierra Leone 306 km
+Eritrea,"1,626.00 km",Djibouti 109 km Ethiopia 912 km Sudan 605 km
+Jordan,"1,635.00 km",Iraq 181 km Israel 238 km Saudi Arabia 744 km Syria 375 km West Bank 97 km
+Togo,"1,647.00 km",Benin 644 km Burkina Faso 126 km Ghana 877 km
+Uruguay,"1,648.00 km",Argentina 580 km Brazil 1068 km
+"Korea, North","1,673.00 km",China 1416 km South Korea 238 km Russia 19 km
+Guatemala,"1,687.00 km",Belize 266 km El Salvador 203 km Honduras 256 km Mexico 962 km
+Suriname,"1,703.00 km",Brazil 593 km French Guiana 510 km Guyana 600 km
+Yemen,"1,746.00 km",Oman 288 km Saudi Arabia 1458 km
+Bulgaria,"1,808.00 km",Greece 494 km Macedonia 148 km Romania 608 km Serbia 318 km Turkey 240 km
+Switzerland,"1,852.00 km",Austria 164 km France 573 km Italy 740 km Liechtenstein 41 km Germany 334 km
+Italy,"1,899.20 km",Austria 430 km France 488 km Holy See (Vatican City) 3.2 km San Marino 39 km Slovenia 199 km Switzerland 740 km
+Spain,"1,917.80 km",Andorra 63.7 km France 623 km Gibraltar 1.2 km Portugal 1214 km Morocco (Ceuta) 6.3 km Morocco (Melilla) 9.6 km
+Croatia,"1,982.00 km",Bosnia and Herzegovina 932 km Hungary 329 km Serbia 241 km Montenegro 25 km Slovenia 455 km
+Benin,"1,989.00 km",Burkina Faso 306 km Niger 266 km Nigeria 773 km Togo 644 km
+Czech Republic,"1,989.00 km",Austria 362 km Germany 815 km Poland 615 km Slovakia 197 km
+Ecuador,"2,010.00 km",Colombia 590 km Peru 1420 km
+Azerbaijan,"2,013.00 km",Armenia (with Azerbaijan-proper) 566 km Armenia (with Azerbaijan-Naxcivan exclave) 221 km Georgia 322 km Iran (with Azerbaijan-proper) 432 km Iran (with Azerbaijan-Naxcivan exclave) 179 km Russia 284 km Turkey 9 km
+Morocco,"2,017.90 km",Algeria 1559 km Western Sahara 443 km Spain (Ceuta) 6.3 km Spain (Melilla) 9.6 km
+Serbia,"2,026.00 km",Bosnia and Herzegovina 302 km Bulgaria 318 km Croatia 241 km Hungary 151 km Kosovo 352 km Macedonia 62 km Montenegro 124 km Romania 476 km
+Western Sahara,"2,046.00 km",Algeria 42 km Mauritania 1561 km Morocco 443 km
+Ghana,"2,094.00 km",Burkina Faso 549 km Cote d'Ivoire 668 km Togo 877 km
+Hungary,"2,185.00 km",Austria 366 km Croatia 329 km Romania 443 km Serbia 166 km Slovakia 676 km Slovenia 102 km Ukraine 103 km
+Sweden,"2,233.00 km",Finland 614 km Norway 1619 km
+Syria,"2,253.00 km",Iraq 605 km Israel 76 km Jordan 375 km Lebanon 375 km Turkey 822 km
+Somalia,"2,340.00 km",Djibouti 58 km Ethiopia 1600 km Kenya 682 km
+Romania,"2,508.00 km",Bulgaria 608 km Hungary 443 km Moldova 450 km Serbia 476 km Ukraine (north) 362 km Ukraine (east) 169 km
+Norway,"2,542.00 km",Finland 727 km Sweden 1619 km Russia 196 km
+Gabon,"2,551.00 km",Cameroon 298 km Republic of the Congo 1903 km Equatorial Guinea 350 km
+Austria,"2,562.00 km",Czech Republic 362 km Germany 784 km Hungary 366 km Italy 430 km Liechtenstein 35 km Slovakia 91 km Slovenia 330 km Switzerland 164 km
+Cambodia,"2,572.00 km",Laos 541 km Thailand 803 km Vietnam 1228 km
+Senegal,"2,640.00 km",The Gambia 740 km Guinea 330 km Guinea-Bissau 338 km Mali 419 km Mauritania 813 km
+Turkey,"2,648.00 km",Armenia 268 km Azerbaijan 9 km Bulgaria 240 km Georgia 252 km Greece 206 km Iran 499 km Iraq 352 km Syria 822 km
+Finland,"2,654.00 km",Norway 727 km Sweden 614 km Russia 1313 km
+Egypt,"2,665.00 km",Gaza Strip 11 km Israel 266 km Libya 1115 km Sudan 1273 km
+Malaysia,"2,669.00 km",Brunei 381 km Indonesia 1782 km Thailand 506 km
+Uganda,"2,698.00 km",Democratic Republic of the Congo 765 km Kenya 933 km Rwanda 169 km Sudan 435 km Tanzania 396 km
+Indonesia,"2,830.00 km",Timor-Leste 228 km Malaysia 1782 km Papua New Guinea 820 km
+Malawi,"2,881.00 km",Mozambique 1569 km Tanzania 475 km Zambia 837 km
+France,"2,889.00 km",Andorra 56.6 km Belgium 620 km Germany 451 km Italy 488 km Luxembourg 73 km Monaco 4.4 km Spain 623 km Switzerland 573 km
+Nepal,"2,926.00 km",China 1236 km India 1690 km
+Guyana,"2,949.00 km",Brazil 1606 km Suriname 600 km Venezuela 743 km
+Poland,"3,047.00 km",Belarus 605 km Czech Republic 615 km Germany 456 km Lithuania 91 km Russia (Kaliningrad Oblast) 432 km Slovakia 420 km Ukraine 428 km
+Kyrgyzstan,"3,051.00 km",China 858 km Kazakhstan 1224 km Tajikistan 870 km Uzbekistan 1099 km
+Zimbabwe,"3,066.00 km",Botswana 813 km Mozambique 1231 km South Africa 225 km Zambia 797 km
+Cote d'Ivoire,"3,110.00 km",Burkina Faso 584 km Ghana 668 km Guinea 610 km Liberia 716 km Mali 532 km
+Burkina Faso,"3,193.00 km",Benin 306 km Cote d'Ivoire 584 km Ghana 549 km Mali 1000 km Niger 628 km Togo 126 km
+Belarus,"3,306.00 km",Latvia 171 km Lithuania 680 km Poland 605 km Russia 959 km Ukraine 891 km
+Guinea,"3,399.00 km",Cote d'Ivoire 610 km Guinea-Bissau 386 km Liberia 563 km Mali 858 km Senegal 330 km Sierra Leone 652 km
+Kenya,"3,477.00 km",Ethiopia 861 km Somalia 682 km Sudan 232 km Tanzania 769 km Uganda 933 km
+Germany,"3,621.00 km",Austria 784 km Belgium 167 km Czech Republic 646 km Denmark 68 km France 451 km Luxembourg 138 km Netherlands 577 km Poland 456 km Switzerland 334 km
+Iraq,"3,650.00 km",Iran 1458 km Jordan 181 km Kuwait 240 km Saudi Arabia 814 km Syria 605 km Turkey 352 km
+Tajikistan,"3,651.00 km",Afghanistan 1206 km China 414 km Kyrgyzstan 870 km Uzbekistan 1161 km
+Turkmenistan,"3,736.00 km",Afghanistan 744 km Iran 992 km Kazakhstan 379 km Uzbekistan 1621 km
+Tanzania,"3,861.00 km",Burundi 451 km Democratic Republic of the Congo 459 km Kenya 769 km Malawi 475 km Mozambique 756 km Rwanda 217 km Uganda 396 km Zambia 338 km
+Namibia,"3,936.00 km",Angola 1376 km Botswana 1360 km South Africa 967 km Zambia 233 km
+Paraguay,"3,995.00 km",Argentina 1880 km Bolivia 750 km Brazil 1365 km
+Botswana,"4,013.00 km",Namibia 1360 km South Africa 1840 km Zimbabwe 813 km
+Nigeria,"4,047.00 km",Benin 773 km Cameroon 1690 km Chad 87 km Niger 1497 km
+Bangladesh,"4,246.00 km",Burma 193 km India 4053 km
+Libya,"4,348.00 km",Algeria 982 km Chad 1055 km Egypt 1115 km Niger 354 km Sudan 383 km Tunisia 459 km
+Mexico,"4,353.00 km",Belize 250 km Guatemala 962 km US 3141 km
+Saudi Arabia,"4,431.00 km",Iraq 814 km Jordan 744 km Kuwait 222 km Oman 676 km Qatar 60 km UAE 457 km Yemen 1458 km
+Ukraine,"4,566.00 km",Belarus 891 km Hungary 103 km Moldova 940 km Poland 428 km Romania (south) 176 km Romania (southwest) 362 km Russia 1576 km Slovakia 90 km
+Mozambique,"4,571.00 km",Malawi 1569 km South Africa 491 km Swaziland 105 km Tanzania 756 km Zambia 419 km Zimbabwe 1231 km
+Cameroon,"4,591.00 km",Central African Republic 797 km Chad 1094 km Republic of the Congo 523 km Equatorial Guinea 189 km Gabon 298 km Nigeria 1690 km
+Vietnam,"4,639.00 km",Cambodia 1228 km China 1281 km Laos 2130 km
+South Africa,"4,862.00 km",Botswana 1840 km Lesotho 909 km Mozambique 491 km Namibia 967 km Swaziland 430 km Zimbabwe 225 km
+Thailand,"4,863.00 km",Burma 1800 km Cambodia 803 km Laos 1754 km Malaysia 506 km
+Venezuela,"4,993.00 km",Brazil 2200 km Colombia 2050 km Guyana 743 km
+Mauritania,"5,074.00 km",Algeria 463 km Mali 2237 km Senegal 813 km Western Sahara 1561 km
+Laos,"5,083.00 km",Burma 235 km Cambodia 541 km China 423 km Thailand 1754 km Vietnam 2130 km
+Angola,"5,198.00 km",Democratic Republic of the Congo 2511 km (of which 225 km is the boundary of discontiguous Cabinda Province) Republic of the Congo 201 km Namibia 1376 km Zambia 1110 km
+Central African Republic,"5,203.00 km",Cameroon 797 km Chad 1197 km Democratic Republic of the Congo 1577 km Republic of the Congo 467 km Sudan 1165 km
+Ethiopia,"5,328.00 km",Djibouti 349 km Eritrea 912 km Kenya 861 km Somalia 1600 km Sudan 1606 km
+Iran,"5,440.00 km",Afghanistan 936 km Armenia 35 km Azerbaijan-proper 432 km Azerbaijan-Naxcivan exclave 179 km Iraq 1458 km Pakistan 909 km Turkey 499 km Turkmenistan 992 km
+"Congo, Republic of the","5,504.00 km",Angola 201 km Cameroon 523 km Central African Republic 467 km Democratic Republic of the Congo 2410 km Gabon 1903 km
+Afghanistan,"5,529.00 km",China 76 km Iran 936 km Pakistan 2430 km Tajikistan 1206 km Turkmenistan 744 km Uzbekistan 137 km
+Zambia,"5,664.00 km",Angola 1110 km Democratic Republic of the Congo 1930 km Malawi 837 km Mozambique 419 km Namibia 233 km Tanzania 338 km Zimbabwe 797 km
+Niger,"5,697.00 km",Algeria 956 km Benin 266 km Burkina Faso 628 km Chad 1175 km Libya 354 km Mali 821 km Nigeria 1497 km
+Burma,"5,876.00 km",Bangladesh 193 km China 2185 km India 1463 km Laos 235 km Thailand 1800 km
+Chad,"5,968.00 km",Cameroon 1094 km Central African Republic 1197 km Libya 1055 km Niger 1175 km Nigeria 87 km Sudan 1360 km
+Uzbekistan,"6,221.00 km",Afghanistan 137 km Kazakhstan 2203 km Kyrgyzstan 1099 km Tajikistan 1161 km Turkmenistan 1621 km
+Colombia,"6,309.00 km",Brazil 1644 km Ecuador 590 km Panama 225 km Peru 1800 km Venezuela 2050 km
+Chile,"6,339.00 km",Argentina 5308 km Bolivia 860 km Peru 171 km
+Algeria,"6,343.00 km",Libya 982 km Mali 1376 km Mauritania 463 km Morocco 1559 km Niger 956 km Tunisia 965 km Western Sahara 42 km
+Pakistan,"6,774.00 km",Afghanistan 2430 km China 523 km India 2912 km Iran 909 km
+Bolivia,"6,940.00 km",Argentina 832 km Brazil 3423 km Chile 860 km Paraguay 750 km Peru 1075 km
+Mali,"7,243.00 km",Algeria 1376 km Burkina Faso 1000 km Guinea 858 km Cote d'Ivoire 532 km Mauritania 2237 km Niger 821 km Senegal 419 km
+Peru,"7,461.00 km",Bolivia 1075 km Brazil 2995 km Chile 171 km Colombia 1800 km Ecuador 1420 km
+Sudan,"7,687.00 km",Central African Republic 1165 km Chad 1360 km Democratic Republic of the Congo 628 km Egypt 1273 km Eritrea 605 km Ethiopia 1606 km Kenya 232 km Libya 383 km Uganda 435 km
+Mongolia,"8,220.00 km",China 4677 km Russia 3543 km
+Canada,"8,893.00 km",US 8893 km (includes 2477 km with Alaska)
+Argentina,"9,861.00 km",Bolivia 832 km Brazil 1261 km Chile 5308 km Paraguay 1880 km Uruguay 580 km
+"Congo, Democratic Republic of the","10,730.00 km",Angola 2511 km (of which 225 km is the boundary of Angola's discontiguous Cabinda Province) Burundi 233 km Central African Republic 1577 km Republic of the Congo 2410 km Rwanda 217 km Sudan 628 km Tanzania 459 km Uganda 765 km Zambia 1930 km
+United States,"12,034.00 km",Canada 8893 km (including 2477 km with Alaska) Mexico 3141 km
+Kazakhstan,"12,185.00 km",China 1533 km Kyrgyzstan 1224 km Russia 6846 km Turkmenistan 379 km Uzbekistan 2203 km
+India,"14,103.00 km",Bangladesh 4053 km Bhutan 605 km Burma 1463 km China 3380 km Nepal 1690 km Pakistan 2912 km
+Brazil,"16,885.00 km",Argentina 1261 km Bolivia 3423 km Colombia 1644 km French Guiana 730 km Guyana 1606 km Paraguay 1365 km Peru 2995 km Suriname 593 km Uruguay 1068 km Venezuela 2200 km
+Russia,"20,241.50 km",Azerbaijan 284 km Belarus 959 km China (southeast) 3605 km China (south) 40 km Estonia 290 km Finland 1313 km Georgia 723 km Kazakhstan 6846 km North Korea 17.5 km Latvia 292 km Lithuania (Kaliningrad Oblast) 227 km Mongolia 3441 km Norway 196 km Poland (Kaliningrad Oblast) 432 km Ukraine 1576 km
+China,"22,117.00 km","Afghanistan 76 km Bhutan 470 km Burma 2185 km India 3380 km Kazakhstan 1533 km North Korea 1416 km Kyrgyzstan 858 km Laos 423 km Mongolia 4677 km Nepal 1236 km Pakistan 523 km Russia (northeast) 3605 km Russia (northwest) 40 km Tajikistan 414 km Vietnam 1281 km; regional borders: Hong Kong 30 km, Macau 0.34 km"

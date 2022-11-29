@@ -1,0 +1,478 @@
+dispnum	version	change
+12	2.1	ENDDAY changed back to 30.
+13	2.1	STYEAR changed back to 1863. STMON changed back to 4. STDAY changed back to 6. HIACT changed to 16 Attack [4]. NUMA changed to 1. RECIP changed to 1.
+20	2.1	HIACT changed to 14 Occupation of territory [4]. HOSTLEV changed to 4 Use of force.
+21	2.1	RECIP changed to 1.
+25	2.1	ENDYEAR changed back to 1832. ENDMON changed to 12. ENDDAY changed to -9.
+27	2.1	STDAY changed to 15.
+50	2.1	FATALITY changed to 6 > 999 deaths.
+64	2.1	STMON changed to 3. STDAY changed to 17. ENDMON changed back to 10. ENDDAY changed to 7.
+68	2.1	RECIP changed to 1.
+86	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+104	2.1	HIACT changed to 11 Fortify border [3].
+114	2.1	STDAY changed to -9. ENDDAY changed to 18.
+119	2.1	HIACT changed to 11 Fortify border [3].
+123	2.1	HIACT changed to 13 Blockade [4].
+125	2.1	HIACT changed to 16 Attack [4]. HOSTLEV changed to 4 Use of force.
+134	2.1	HIACT changed to 7 Show of force [3].
+146	2.1	ENDDAY changed back to -9. HIACT changed to 17 Clash [4].
+148	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+152	2.1	HIACT changed to 14 Occupation of territory [4].
+160	2.1	HIACT changed to 18 Declaration of war [4].
+165	2.1	HIACT changed to 16 Attack [4].
+169	2.1	STDAY changed to 10. HIACT changed to 17 Clash [4].
+172	2.1	STDAY changed to 5.
+180	2.1	STMON changed to 7. STDAY changed to -9.
+183	2.1	STDAY changed to -9.
+184	2.1	STDAY changed to -9.
+185	2.1	STDAY changed to 19. HIACT changed to 7 Show of force [3]. HOSTLEV changed to 3 Display of force. RECIP changed to 0.
+191	2.1	HIACT changed to 16 Attack [4].
+199	2.1	STMON changed to 10. STDAY changed to 24.
+225	2.1	ENDDAY changed back to 26.
+231	2.1	ENDMON changed back to 5. ENDDAY changed back to 25.
+236	2.1	ENDDAY changed to 8.
+246	2.1	HIACT changed to 17 Clash [4].
+251	2.1	FATALPRE changed to 0.
+252	2.1	STYEAR changed to 1946. STMON changed to 1. STDAY changed to 16.
+260	2.1	STDAY changed to 23.
+266	2.1	STMON changed back to 2. STDAY changed back to 8. FATALITY changed to 1 1-25 deaths. FATALPRE changed to 5.
+317	2.1	STDAY changed to 6.
+324	2.1	STMON changed back to 3. STDAY changed back to 7. ENDYEAR changed to 1916. ENDMON changed to 11. ENDDAY changed to 26. NUMA changed to 4.
+337	2.1	STYEAR changed to 1939. STMON changed to 6. STDAY changed to 14. HIACT changed to 15 Seizure [4]. RECIP changed to 1.
+339	2.1	STMON changed to 3. STDAY changed to 28.
+345	2.1	HIACT changed to 16 Attack [4].
+349	2.1	STYEAR changed to 1968. STMON changed to 12. STDAY changed to 27.
+352	2.1	STMON changed to 5. STDAY changed to 7. ENDMON changed to 10. ENDDAY changed to -9.
+353	2.1	ENDMON changed back to 10. ENDDAY changed back to 31.
+356	2.1	HIACT changed to 17 Clash [4].
+358	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+364	2.1	ENDMON changed to 3. ENDDAY changed to 17.
+367	2.1	FATALITY changed to -9 Missing. FATALPRE changed to -9. HIACT changed to 16 Attack [4]. RECIP changed to 1.
+370	2.1	STDAY changed to -9.
+371	2.1	STMON changed to 3. STDAY changed to 12. ENDDAY changed to 12.
+375	2.1	STMON changed back to 4. STDAY changed back to 1.
+396	2.1	STDAY changed to 27.
+409	2.1	STDAY changed to 19. ENDDAY changed to 30.
+414	2.1	STDAY changed to 29.
+610	2.1	STDAY changed to 21. HIACT changed to 17 Clash [4].
+612	2.1	ENDMON changed to 10. ENDDAY changed to 23.
+623	2.1	STMON changed to 8.
+633	2.1	HIACT changed to 17 Clash [4].
+1006	2.1	ENDDAY changed to 25.
+1021	2.1	HIACT changed to 17 Clash [4].
+1028	2.1	FATALPRE changed to 0.
+1039	2.1	STMON changed to 9. STDAY changed to 2. NUMB changed to 2.
+1051	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+1061	2.1	ENDMON changed to 1. ENDDAY changed to 12.
+1062	2.1	HIACT changed to 11 Fortify border [3].
+1067	2.1	NUMB changed to 5.
+1070	2.1	NUMB changed to 4.
+1072	2.1	HIACT changed to 10 Mobilization [3].
+1087	2.1	ENDYEAR changed back to 1911. ENDMON changed back to 12. ENDDAY changed back to 30.
+1106	2.1	HIACT changed to 16 Attack [4]. NUMB changed to 2.
+1108	2.1	STDAY changed to -9. ENDMON changed to 3. ENDDAY changed to 3. NUMA changed back to 3.
+1110	2.1	ENDMON changed to 11. ENDDAY changed to 30.
+1117	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+1118	2.1	HIACT changed to 15 Seizure [4].
+1129	2.1	STDAY changed to 14.
+1135	2.1	ENDMON changed to 8.
+1145	2.1	HIACT changed to 7 Show of force [3]. HOSTLEV changed to 3 Display of force. RECIP changed to 0.
+1156	2.1	ENDMON changed to 3. ENDDAY changed to 4.
+1157	2.1	Restored MID#1157.
+1173	2.1	STMON changed to 2. STDAY changed to -9. FATALITY changed to 2 26-100 deaths. FATALPRE changed to 35.
+1174	2.1	ENDMON changed to 10. ENDDAY changed to -9.
+1178	2.1	STMON changed to 1. STDAY changed to 26.
+1180	2.1	STMON changed to 12. STDAY changed to 7.
+1184	2.1	STMON changed to 6.
+1190	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 2.
+1202	2.1	ENDMON changed to 9. ENDDAY changed to 17.
+1213	2.1	ENDYEAR changed to 1969. ENDMON changed to 6. ENDDAY changed to 2.
+1232	2.1	ENDDAY changed to 25. OUTCOME changed to 1 Victory for side A.
+1247	2.1	HIACT changed to 13 Blockade [4].
+1280	2.1	STDAY changed to 17.
+1286	2.1	HIACT changed to 17 Clash [4].
+1289	2.1	HIACT changed to 10 Mobilization [3]. RECIP changed to 0.
+1292	2.1	HIACT changed to 11 Fortify border [3].
+1295	2.1	STDAY changed to 27.
+1303	2.1	STDAY changed to 14.
+1307	2.1	ENDMON changed to 3. ENDDAY changed to 30.
+1319	2.1	HIACT changed to 16 Attack [4].
+1321	2.1	STDAY changed back to 5.
+1325	2.1	HIACT changed to 8 Alert [3]. HOSTLEV changed to 3 Display of force.
+1331	2.1	STDAY changed to 28. ENDDAY changed to 21. HIACT changed to 8 Alert [3].
+1344	2.1	ENDMON changed to 3. ENDDAY changed to 16.
+1347	2.1	ENDMON changed to 2. ENDDAY changed to 1. HIACT changed to 16 Attack [4].
+1350	2.1	STDAY changed to -9.
+1353	2.1	FATALITY changed to 6 > 999 deaths.
+1360	2.1	ENDDAY changed to 15. FATALITY changed to 4 251-500 deaths. FATALPRE changed to -9.
+1364	2.1	ENDDAY changed to 14.
+1368	2.1	HIACT changed to 16 Attack [4].
+1374	2.1	ENDMON changed to 3. ENDDAY changed to 2.
+1379	2.1	ENDDAY changed to 17.
+1381	2.1	HIACT changed to 17 Clash [4].
+1389	2.1	STDAY changed to 21. ENDDAY changed to 21.
+1392	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+1404	2.1	STDAY changed to 13. ENDDAY changed to 15. HIACT changed to 14 Occupation of territory [4]. HOSTLEV changed to 4 Use of force.
+1419	2.1	OUTCOME changed to 7 Released.
+1426	2.1	ENDYEAR changed back to 1964. ENDMON changed back to 3. ENDDAY changed back to 30.
+1435	2.1	STDAY changed to -9.
+1441	2.1	STDAY changed to 22. NUMA changed to 4.
+1447	2.1	ENDYEAR changed to 1972. ENDMON changed to 7. ENDDAY changed to 3.
+1448	2.1	STDAY changed to -9. NUMB changed back to 2.
+1450	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+1480	2.1	STDAY changed to 29.
+1482	2.1	OUTCOME changed to 4 Yield by side B.
+1508	2.1	ENDMON changed to 11. ENDDAY changed to 25.
+1526	2.1	Restored MID#1526.
+1533	2.1	STMON changed to 1. STDAY changed to -9. ENDMON changed to 5. ENDDAY changed to 8.
+1540	2.1	ENDYEAR changed back to 1841. ENDMON changed to 5. ENDDAY changed to 18.
+1545	2.1	ENDMON changed to 6. ENDDAY changed back to 12.
+1547	2.1	ENDDAY changed back to 16.
+1551	2.1	ENDYEAR changed to 1850. ENDMON changed to 11. ENDDAY changed to -9.
+1556	2.1	STMON changed to 5. STDAY changed to -9. ENDYEAR changed to 1836. ENDMON changed to 4. ENDDAY changed to -9.
+1586	2.1	STYEAR changed back to 1846. STMON changed back to 1. STDAY changed back to 1.
+1595	2.1	ENDMON changed back to 2. ENDDAY changed back to 10.
+1605	2.1	ENDMON changed to 5. ENDDAY changed to -9.
+1609	2.1	HIACT changed to 15 Seizure [4].
+1610	2.1	STMON changed to 2. STDAY changed to 24. FATALITY changed to 1 1-25 deaths. FATALPRE changed back to -9. HIACT changed to 17 Clash [4].
+1629	2.1	ENDDAY changed back to 30.
+1632	2.1	ENDDAY changed to 16.
+1633	2.1	STMON changed to 1. STDAY changed to -9. ENDMON changed to 4. ENDDAY changed to 27.
+1642	2.1	ENDYEAR changed to 1890. ENDMON changed to 10. ENDDAY changed to 14. RECIP changed to 0.
+1643	2.1	STMON changed to 1. ENDMON changed to 2. ENDDAY changed to 4.
+1653	2.1	ENDDAY changed to 7.
+1671	2.1	STDAY changed to 11. ENDMON changed to 7. ENDDAY changed to 3.
+1686	2.1	ENDYEAR changed back to 1939. ENDMON changed back to 9. ENDDAY changed back to -9.
+1702	2.1	Dropped MID#1702.
+1707	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 3. HIACT changed to 17 Clash [4].
+1709	2.1	HIACT changed to 1 Threat to use force [2]. HOSTLEV changed to 2 Threat to use force. RECIP changed to 0.
+1710	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+1750	2.1	ENDDAY changed back to 30.
+1764	2.1	HIACT changed to 7 Show of force [3]. HOSTLEV changed to 3 Display of force. RECIP changed to 0.
+1774	2.1	HIACT changed to 1 Threat to use force [2]. HOSTLEV changed to 2 Threat to use force. RECIP changed to 0.
+1777	2.1	STMON changed to 12. STDAY changed to -9.
+1788	2.1	ENDDAY changed back to 18.
+1790	2.1	Restored MID#1790. RECIP changed to 0.
+1797	2.1	STDAY changed to -9. HIACT changed to 16 Attack [4].
+1801	2.1	HIACT changed to 8 Alert [3].
+1804	2.1	ENDYEAR changed to 1965. ENDMON changed to 12. ENDDAY changed to 3. HIACT changed to 8 Alert [3].
+1805	2.1	STDAY changed to 7. ENDDAY changed to 18.
+1806	2.1	Merged MID#1806 with MID#1213.
+1810	2.1	ENDDAY changed back to 30.
+2001	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+2006	2.1	STMON changed to 9. STDAY changed to 29.
+2020	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+2030	2.1	STDAY changed to -9. HIACT changed to 16 Attack [4].
+2031	2.1	ENDMON changed to 3. ENDDAY changed to -9.
+2035	2.1	RECIP changed to 1.
+2036	2.1	STYEAR changed to 1954. ENDYEAR changed to 1954. ENDDAY changed to 26.
+2049	2.1	HIACT changed to 16 Attack [4].
+2052	2.1	ENDDAY changed to 11.
+2053	2.1	ENDMON changed to 1. ENDDAY changed to 29.
+2054	2.1	ENDDAY changed to 11.
+2070	2.1	STMON changed to 3. STDAY changed to 31. ENDDAY changed to -9.
+2071	2.1	FATALITY changed to 6 > 999 deaths.
+2072	2.1	STMON changed to 7. STDAY changed to -9. ENDYEAR changed to 1984. ENDMON changed to 1. ENDDAY changed to 30. FATALITY changed to 6 > 999 deaths.
+2075	2.1	STDAY changed to 16. ENDDAY changed to 20.
+2088	2.1	STDAY changed to 20. ENDDAY changed back to 20.
+2106	2.1	STDAY changed to 19. HIACT changed to 16 Attack [4].
+2110	2.1	STMON changed to 1. STDAY changed to 4.
+2112	2.1	STYEAR changed to 1973. STMON changed to 12. STDAY changed to 24.
+2121	2.1	ENDMON changed back to 7. ENDDAY changed to 14.
+2127	2.1	ENDMON changed back to 8.
+2149	2.1	STDAY changed to -9.
+2150	2.1	ENDDAY changed to 25.
+2171	2.1	ENDDAY changed back to 16.
+2179	2.1	FATALITY changed back to 1. FATALPRE changed to 3.
+2181	2.1	HIACT changed to 17 Clash [4].
+2186	2.1	ENDDAY changed to 19.
+2187	2.1	STMON changed to 2. STDAY changed to 16. ENDDAY changed to 16.
+2191	2.1	FATALPRE changed to 5.
+2200	2.1	ENDYEAR changed back to 1875.
+2203	2.1	ENDDAY changed to -9.
+2208	2.1	ENDDAY changed back to 18.
+2215	2.1	RECIP changed to 1.
+2223	2.1	ENDDAY changed back to 2.
+2225	2.1	ENDDAY changed to 19.
+2229	2.1	ENDDAY changed to 19.
+2234	2.1	ENDMON changed back to 8. ENDDAY changed to 19.
+2240	2.1	STDAY changed to -9. HIACT changed to 16 Attack [4].
+2300	2.1	STYEAR changed back to 1893. STMON changed back to 12. STDAY changed back to 23. ENDYEAR changed back to 1893. ENDMON changed back to 12. ENDDAY changed back to 23.
+2310	2.1	OUTCOME changed to 7 Released.
+2328	2.1	ENDYEAR changed to 1949. ENDMON changed back to 11. ENDDAY changed to 12.
+2331	2.1	HIACT changed to 8 Alert [3].
+2332	2.1	STDAY changed to 20.
+2335	2.1	STMON changed to 9. STDAY changed to 4. ENDDAY changed to 4. HIACT changed to 16 Attack [4]. RECIP changed to 0.
+2338	2.1	ENDDAY changed to 18.
+2339	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 2.
+2340	2.1	Restored MID#2340. HIACT changed to 14 Occupation of territory [4]. HOSTLEV changed to 4 Use of force.
+2344	2.1	FATALPRE changed to 5.
+2353	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+2362	2.1	FATALPRE changed to 0.
+2367	2.1	HIACT changed to 15 Seizure [4].
+2372	2.1	STDAY changed to -9. ENDDAY changed to 23.
+2373	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 18.
+2550	2.1	HIACT changed to 15 Seizure [4].
+2557	2.1	ENDDAY changed to 31. HIACT changed to 15 Seizure [4].
+2571	2.1	HIACT changed to 16 Attack [4]. HOSTLEV changed to 4 Use of force.
+2585	2.1	ENDDAY changed to 19.
+2590	2.1	HIACT changed to 7 Show of force [3].
+2591	2.1	Dropped MID#2591.
+2594	2.1	Restored MID#2594.
+2625	2.1	STDAY changed to -9. HIACT changed to 12 Border violation [3]. HOSTLEV changed to 3 Display of force.
+2626	2.1	STDAY changed to 31.
+2630	2.1	HIACT changed to 17 Clash [4].
+2635	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+2707	2.1	HIACT changed to 7 Show of force [3]. RECIP changed to 0.
+2711	2.1	HIACT changed to 11 Fortify border [3].
+2714	2.1	HIACT changed to 16 Attack [4].
+2715	2.1	HIACT changed to 16 Attack [4]. RECIP changed to 0.
+2725	2.1	HIACT changed to 18 Declaration of war [4]. HOSTLEV changed to 4 Use of force. RECIP changed to 0.
+2727	2.1	RECIP changed to 0.
+2730	2.1	ENDDAY changed to 18.
+2731	2.1	ENDDAY changed to -9.
+2738	2.1	STMON changed to 7.
+2740	2.1	HIACT changed to 17 Clash [4].
+2742	2.1	STDAY changed to 8. HIACT changed to 15 Seizure [4]. HOSTLEV changed to 4 Use of force. RECIP changed to 1.
+2744	2.1	STMON changed to 8. STDAY changed to 1.
+2748	2.1	STDAY changed to 10. ENDDAY changed to 10.
+2773	2.1	HIACT changed to 15 Seizure [4].
+2778	2.1	STDAY changed to 4. HIACT changed to 7 Show of force [3]. HOSTLEV changed to 3 Display of force. RECIP changed to 0.
+2779	2.1	HIACT changed to 16 Attack [4].
+2788	2.1	STMON changed to 9.
+2798	2.1	HIACT changed to 7 Show of force [3]. HOSTLEV changed to 3 Display of force.
+2799	2.1	HIACT changed to 17 Clash [4].
+2819	2.1	ENDMON changed to 12. ENDDAY changed to 15.
+2824	2.1	STDAY changed back to 16. ENDDAY changed back to 14.
+2847	2.1	ENDYEAR changed back to 1957. ENDMON changed back to 11. ENDDAY changed back to 19.
+2850	2.1	HIACT changed to 7 Show of force [3].
+2863	2.1	STDAY changed to 27.
+2871	2.1	HIACT changed to 7 Show of force [3].
+2873	2.1	STMON changed to 6. STDAY changed to 22.
+2875	2.1	STMON changed to 2.
+2885	2.1	HIACT changed to 7 Show of force [3].
+2897	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 2.
+2913	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+2918	2.1	STDAY changed to 17. ENDDAY changed to 17.
+2925	2.1	HIACT changed to 16 Attack [4].
+2936	2.1	STDAY changed to 9.
+2968	2.1	STDAY changed to 26.
+2971	2.1	HIACT changed to 16 Attack [4]. HOSTLEV changed to 4 Use of force. RECIP changed to 1.
+2976	2.1	HIACT changed to 7 Show of force [3].
+2981	2.1	HIACT changed to 7 Show of force [3].
+2986	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to -9.
+2992	2.1	STDAY changed to 13.
+2998	2.1	HIACT changed to 16 Attack [4].
+3001	2.1	HIACT changed to 8 Alert [3].
+3003	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 2.
+3004	2.1	HIACT changed to 17 Clash [4].
+3022	2.1	STDAY changed to 10. ENDDAY changed to 11. HIACT changed back to 7.
+3025	2.1	HIACT changed to 17 Clash [4].
+3031	2.1	ENDDAY changed back to 25.
+3041	2.1	STDAY changed to 21. ENDDAY changed to 21.
+3048	2.1	HIACT changed to 17 Clash [4].
+3053	2.1	STDAY changed to 1.
+3060	2.1	Restored MID#3060. FATALPRE changed to 0.
+3064	2.1	STDAY changed to 3. ENDDAY changed to 7. HIACT changed back to 7. RECIP changed to 1.
+3071	2.1	HIACT changed to 7 Show of force [3]. HOSTLEV changed to 3 Display of force. RECIP changed back to 1.
+3073	2.1	HIACT changed to 17 Clash [4]. RECIP changed to 1.
+3089	2.1	HIACT changed to 7 Show of force [3].
+3093	2.1	OUTCOME changed to 7 Released.
+3099	2.1	HIACT changed to 17 Clash [4]. NUMA changed to 1.
+3104	2.1	ENDDAY changed to 22.
+3108	2.1	STDAY changed to 12.
+3112	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 2.
+3115	2.1	Restored MID#3115. HIACT changed to 11 Fortify border [3].
+3122	2.1	STDAY changed to 22. HIACT changed to 16 Attack [4].
+3130	2.1	ENDMON changed back to 6.
+3133	2.1	STDAY changed to 16.
+3135	2.1	STMON changed back to 3. STDAY changed to 9.
+3138	2.1	STYEAR changed back to 1831. STMON changed to 4. STDAY changed to 17.
+3139	2.1	HIACT changed to 14 Occupation of territory [4]. RECIP changed to 0.
+3150	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+3155	2.1	HIACT changed to 7 Show of force [3].
+3162	2.1	STMON changed to 8. STDAY changed to 9. ENDDAY changed to 25. HIACT changed to 15 Seizure [4]. RECIP changed to 1.
+3190	2.1	ENDDAY changed to 4.
+3195	2.1	HIACT changed to 15 Seizure [4]. HOSTLEV changed to 4 Use of force.
+3197	2.1	STDAY changed to 11. ENDDAY changed to 20. HIACT changed to 16 Attack [4]. HOSTLEV changed to 4 Use of force.
+3207	2.1	STDAY changed to 16. ENDMON changed to 4. ENDDAY changed to 15.
+3214	2.1	STDAY changed back to 30.
+3218	2.1	HIACT changed to 7 Show of force [3].
+3244	2.1	STDAY changed to 28. HIACT changed to 16 Attack [4].
+3258	2.1	ENDMON changed back to 12. ENDDAY changed back to -9.
+3260	2.1	RECIP changed to 1.
+3265	2.1	STMON changed to 6. STDAY changed to 5. ENDYEAR changed to 1947. ENDMON changed to 6. ENDDAY changed to 26.
+3300	2.1	STDAY changed to 20.
+3330	2.1	ENDDAY changed back to 5.
+3341	2.1	ENDMON changed to 10. ENDDAY changed to 20.
+3352	2.1	HIACT changed to 11 Fortify border [3]. RECIP changed to 1.
+3360	2.1	STMON changed to 10. STDAY changed to 18.
+3370	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to -9.
+3374	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to -9.
+3375	2.1	HIACT changed to 17 Clash [4].
+3378	2.1	STMON changed back to 4. STDAY changed back to 22.
+3379	2.1	ENDMON changed to 2. ENDDAY changed to 19. HIACT changed to 4 Threat to declare war [2]. HOSTLEV changed to 2 Threat to use force. RECIP changed to 0.
+3380	2.1	ENDYEAR changed to 1974. ENDMON changed to 3. ENDDAY changed to 22.
+3387	2.1	ENDMON changed to 9. ENDDAY changed to 20. FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1. HIACT changed to 17 Clash [4].
+3404	2.1	HIACT changed to 16 Attack [4].
+3405	2.1	ENDMON changed to 8. ENDDAY changed to 23. NUMA changed back to 2.
+3406	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 2. HIACT changed to 17 Clash [4].
+3412	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to -9.
+3414	2.1	HIACT changed to 16 Attack [4].
+3416	2.1	RECIP changed to 1.
+3417	2.1	ENDDAY changed to 18.
+3418	2.1	HIACT changed back to 16.
+3419	2.1	STDAY changed to 21.
+3422	2.1	HIACT changed to 17 Clash [4]. RECIP changed to 1.
+3427	2.1	STDAY changed to 25.
+3434	2.1	ENDMON changed to 10. ENDDAY changed to 20.
+3438	2.1	STMON changed to 8. STDAY changed to 1.
+3441	2.1	HIACT changed to 17 Clash [4].
+3447	2.1	FATALITY changed to 3 101-250 deaths.
+3514	2.1	ENDMON changed to 19.
+3522	2.1	ENDMON changed to 12. ENDDAY changed to 11.
+3525	2.1	STDAY changed to 8.
+3540	2.1	STYEAR changed to 1984. ENDMON changed back to 6. ENDDAY changed back to 14.
+3551	2.1	ENDYEAR changed back to 1996. ENDMON changed back to 10. ENDDAY changed back to 2.
+3554	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to -9. HIACT changed to 16 Attack [4]. HOSTLEV changed to 4 Use of force.
+3563	2.1	STDAY changed to 17.
+3564	2.1	STDAY changed back to 26. ENDMON changed back to 1. ENDDAY changed back to -9.
+3568	2.1	ENDDAY changed to 4.
+3574	2.1	HIACT changed to 17 Clash [4].
+3631	2.1	STMON changed to 6. STDAY changed to -9.
+3633	2.1	HIACT changed to 17 Clash [4]. HOSTLEV changed to 4 Use of force.
+3634	2.1	FATALITY changed to 6 > 999 deaths.
+3656	2.1	ENDYEAR changed to 1937. ENDDAY changed to -9.
+3701	2.1	Restored MID#3701.
+3702	2.1	Restored MID#3702.
+3809	2.1	ENDDAY changed to 15.
+3836	2.1	ENDMON changed to 7. ENDDAY changed to 19.
+3860	2.1	ENDMON changed to 3. ENDDAY changed to 31.
+3901	2.1	HIACT changed to 17 Clash [4].
+3906	2.1	STDAY changed to 7. HIACT changed to 7 Show of force [3]. HOSTLEV changed to 3 Display of force.
+3912	2.1	HIACT changed to 16 Attack [4].
+3913	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 4.
+3914	2.1	STMON changed to 3. STDAY changed to 13.
+3919	2.1	HIACT changed to 17 Clash [4].
+3920	2.1	ENDMON changed to 9. ENDDAY changed to 27.
+3958	2.1	STMON changed to 4. STDAY changed to 28. ENDMON changed to 2. ENDDAY changed to 1.
+3961	2.1	STDAY changed to 11.
+3973	2.1	HIACT changed to 17 Clash [4].
+3974	2.1	HIACT changed to 16 Attack [4].
+3984	2.1	HIACT changed to 11 Fortify border [3].
+3987	2.1	HIACT changed to 7 Show of force [3].
+3994	2.1	NUMB changed to 2.
+4027	2.1	STMON changed back to 1. STDAY changed back to -9. ENDMON changed back to 5. ENDDAY changed back to 13.
+4029	2.1	STMON changed back to 8. STDAY changed back to -9. ENDMON changed back to 8. ENDDAY changed back to -9.
+4035	2.1	STDAY changed back to -9.
+4038	2.1	ENDDAY changed back to 11.
+4042	2.1	ENDMON changed back to 9. ENDDAY changed to 27.
+4051	2.1	STDAY changed back to 15. ENDDAY changed back to 15.
+4060	2.1	STMON changed back to 3. STDAY changed back to 25. ENDMON changed back to 3. ENDDAY changed back to 25.
+4071	2.1	STDAY changed back to 23. ENDMON changed to 10. ENDDAY changed to 23.
+4084	2.1	STDAY changed back to -9. ENDDAY changed back to -9.
+4085	2.1	STMON changed back to 5. STDAY changed back to 28.
+4088	2.1	STDAY changed back to -9. ENDDAY changed back to -9.
+4092	2.1	ENDDAY changed back to 9.
+4097	2.1	HIACT changed back to 17.
+4100	2.1	HIACT changed to 10 Mobilization [3].
+4103	2.1	ENDDAY changed back to 13.
+4113	2.1	ENDDAY changed back to 6.
+4126	2.1	ENDDAY changed back to 17.
+4136	2.1	STDAY changed back to 3.
+4138	2.1	STDAY changed back to 12. ENDDAY changed back to 12.
+4141	2.1	Merged MID#4141 with MID#4140.
+4144	2.1	ENDDAY changed back to 19.
+4148	2.1	ENDDAY changed back to -9.
+4151	2.1	STMON changed back to 2. STDAY changed back to 24. ENDDAY changed back to -9.
+4160	2.1	ENDDAY changed back to -9.
+4161	2.1	STDAY changed back to 16.
+4174	2.1	ENDYEAR changed back to 1997. ENDMON changed back to 8. ENDDAY changed to 18.
+4179	2.1	STDAY changed back to 15.
+4192	2.1	STDAY changed back to 27.
+4197	2.1	STDAY changed back to 26.
+4225	2.1	STDAY changed back to 21.
+4236	2.1	STDAY changed back to 12. ENDDAY changed back to 12.
+4250	2.1	ENDDAY changed back to 11.
+4269	2.1	ENDMON changed to 9. ENDDAY changed to -9.
+4279	2.1	STDAY changed back to -9. ENDDAY changed back to -9.
+4313	2.1	STDAY changed back to 29.
+4320	2.1	STYEAR changed to 2001. STMON changed back to 12. STDAY changed back to 27.
+4324	2.1	STMON changed back to 7. STDAY changed back to 25.
+4325	2.1	ENDMON changed to 3. ENDDAY changed to 22.
+4329	2.1	STDAY changed back to -9. ENDDAY changed back to -9.
+4339	2.1	STDAY changed back to -9.
+4349	2.1	FATALITY changed to 4 251-500 deaths.
+4350	2.1	FATALITY changed to 0 None. FATALPRE changed to 0.
+4353	2.1	Dropped MID#4353.
+4354	2.1	Dropped MID#4354.
+4356	2.1	STMON changed to 8. STDAY changed to -9.
+4358	2.1	STDAY changed to 14.
+4361	2.1	HIACT changed to 7 Show of force [3].
+4364	2.1	HIACT changed to 7 Show of force [3].
+4368	2.1	HIACT changed to 7 Show of force [3].
+4369	2.1	STDAY changed to 12. ENDDAY changed to 12.
+4374	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+4381	2.1	HIACT changed to 3 Threat to occupy territory [2].
+4382	2.1	Dropped MID#4382.
+4386	2.1	STDAY changed to 27. ENDDAY changed to 27.
+4387	2.1	STDAY changed to 17.
+4390	2.1	STDAY changed to -9.
+4391	2.1	STDAY changed to 9. ENDDAY changed to 9. HIACT changed to 8 Alert [3].
+4399	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+4401	2.1	ENDDAY changed to -9.
+4403	2.1	FATALITY changed to 0 None. FATALPRE changed to 0.
+4404	2.1	ENDDAY changed to 12.
+4408	2.1	FATALITY changed to 0 None. FATALPRE changed to 0.
+4411	2.1	Dropped MID#4411.
+4415	2.1	Dropped MID#4415.
+4417	2.1	STDAY changed to 25. ENDDAY changed to 25.
+4419	2.1	HIACT changed to 11 Fortify border [3]. HOSTLEV changed to 3 Display of force.
+4420	2.1	STDAY changed to 27. ENDDAY changed to 27.
+4427	2.1	STMON changed to 11. STDAY changed to 2.
+4428	2.1	STDAY changed to 21. ENDDAY changed to 21.
+4431	2.1	ENDMON changed to 9. ENDDAY changed to 21.
+4435	2.1	STDAY changed to 26.
+4437	2.1	STDAY changed to 26.
+4438	2.1	STDAY changed to -9. ENDDAY changed to -9.
+4441	2.1	HIACT changed to 7 Show of force [3].
+4444	2.1	STMON changed to 10. STDAY changed to 12.
+4449	2.1	ENDDAY changed to 5.
+4454	2.1	Dropped MID#4454.
+4455	2.1	STDAY changed to 27. HIACT changed to 8 Alert [3]. NUMA changed to 2.
+4456	2.1	STMON changed to 6. STDAY changed to 10.
+4457	2.1	HIACT changed to 16 Attack [4].
+4465	2.1	STMON changed to 11. STDAY changed to -9. ENDDAY changed to -9.
+4466	2.1	STDAY changed to -9. ENDDAY changed to -9.
+4470	2.1	STDAY changed to 18.
+4483	2.1	ENDDAY changed to 26.
+4484	2.1	STDAY changed to 29.
+4486	2.1	STDAY changed to 8.
+4493	2.1	Dropped MID#4493.
+4494	2.1	STMON changed to 6. STDAY changed to 13. ENDMON changed to 6. ENDDAY changed to 13.
+4497	2.1	ENDDAY changed to 26.
+4502	2.1	HIACT changed to 16 Attack [4].
+4512	2.1	STDAY changed to 21.
+4514	2.1	FATALITY changed to 0 None. FATALPRE changed to 0.
+4522	2.1	STDAY changed to 10. ENDDAY changed to 13.
+4526	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 3.
+4528	2.1	STDAY changed to -9. ENDDAY changed to -9.
+4542	2.1	STDAY changed to 27. ENDDAY changed to 27.
+4545	2.1	FATALITY changed to 1 1-25 deaths. FATALPRE changed to 1.
+4549	2.1	Dropped MID#4549.
+4551	2.1	STDAY changed to 13.
+4552	2.1	STMON changed to 3. STDAY changed to 4.
+4553	2.1	STDAY changed to -9.
+4555	2.1	STMON changed to 9.
+4559	2.1	HIACT changed to 11 Fortify border [3].
+4567	2.1	ENDDAY changed to 27.
+4568	2.1	Dropped MID#4568.
+4571	2.1	Dropped MID#4571.
+4572	2.1	Dropped MID#4572.
+4575	2.1	Dropped MID#4575.
+4577	2.1	ENDMON changed to 1. ENDDAY changed to 22.
+4578	2.1	ENDDAY changed to 7.
+4581	2.1	STMON changed to 6. STDAY changed to 22. ENDYEAR changed to 2008. ENDMON changed to 10. ENDDAY changed to 29.
+4582	2.1	STMON changed to 1. STDAY changed to 31.
+4587	2.1	Dropped MID#4587.
+4598	2.1	STDAY changed to 30. ENDMON changed to 9. ENDDAY changed to 30.

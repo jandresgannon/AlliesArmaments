@@ -1,0 +1,9 @@
+appendicesframe 2015-03-0120.R2.pdf (application/pdf) 532232 bytes.
+B&L_CMPS with revised data.dta (application/x-stata-13) 57437066 bytes.
+bibliography-report-2015-03-0120.R2.pdf (application/pdf) 1646775 bytes.
+braithwaite_lemke replication do file.do (application/x-stata-syntax) 2858 bytes.
+data for testing.dta (application/x-stata-13) 920050 bytes.
+file note.rtf (application/msword) 617 bytes.
+gibler and miller rep do file.do (application/x-stata-syntax) 511 bytes.
+weeks replication do file.do (application/x-stata-syntax) 5231 bytes.
+WeeksIO.dta (application/x-stata-13) 3164782 bytes.

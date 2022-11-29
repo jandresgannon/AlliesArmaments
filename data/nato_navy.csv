@@ -1,0 +1,19 @@
+mission,ship_type,actor,ships
+Sea Control,Strike Groups,United States,5
+Sea Control,Support Groups,United States,3
+Sea Control,Escort Groups,United States,10
+Sea Control,ASW Naval Aircraft,United States,261
+Sea Control,Countermine Groups,United States,0.5
+Sea Denial,Nuclear Attack Subs,United States,68
+Sea Denial,Diesel Attack Subs,United States,10
+Sea Denial,Strike Aircraft,United States,312
+Deterrence,Ballistic Missile Subs,United States,31
+Sea Control,Strike Groups,European states,0
+Sea Control,Support Groups,European states,4
+Sea Control,Escort Groups,European states,20
+Sea Control,ASW Naval Aircraft,European states,175
+Sea Control,Countermine Groups,European states,39.5
+Sea Denial,Nuclear Attack Subs,European states,9
+Sea Denial,Diesel Attack Subs,European states,124
+Sea Denial,Strike Aircraft,European states,149
+Deterrence,Ballistic Missile Subs,European states,6
