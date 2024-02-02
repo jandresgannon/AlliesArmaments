@@ -38,48 +38,29 @@ header-includes:
 bibliography: ForceStructure.bib
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-This document creates country-year covariates for all states.
-
 # Set up
 
-```{r}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 library(magrittr)
 library(tidyverse)
 ```
 
+This document creates country-year covariates for all states.
+
 # Load data
 
-```{r}
+```{r load-data}
 # list of all countries
 countries <- read.csv(paste0(here::here(), "/inst/extdata/countries_list.csv"))
 
 # the IISS dataframe from 01a
 iiss <- readRDS(paste0(here::here(), "/data/rDMC_long_v1.rds"))
-
-# coastline lengths
-coastlines <- rio::import(paste0(here::here(), "/inst/extdata/cia_world_factbook_coastlines.csv"))
-
-# land border lengths and bordering states
-land_border <- rio::import(paste0(here::here(), "/inst/extdata/cia_world_factbook_landborder.csv"))
-
-# state land area
-land_area <- rio::import(paste0(here::here(), "/inst/extdata/wb_land_area.csv"))
-
-# IPE external dataset 
-ipe <- rio::import(paste0(here::here(), "/inst/extdata/ipe_data_resource/3. Graham_Tucker_IPE_v2_0.RDATA")) %>%
-  sjlabelled::remove_all_labels()
-
-# ATOP external dataset 
-atop <- rio::import(paste0(here::here(), "/inst/extdata/ATOP/atop5_0sy.csv"))
 ```
 
 # Create data frame
 
-```{r}
+```{r create-df}
 states <- read.csv(file = paste0(here::here(), '/inst/extdata/polities_mssl_gleditschward_states.csv')) %>%
   dplyr::filter(microstate == 0) %>%
   dplyr::select(gwcode, gw_start, gw_end) %>%
@@ -160,7 +141,10 @@ geog <- df
 
 ## Sea
 
-```{r}
+```{r sea}
+# coastline lengths
+coastlines <- rio::import(paste0(here::here(), "/inst/extdata/cia_world_factbook_coastlines.csv"))
+
 # Prep and join coastlines.csv data
 coastlines$country_code_cow <- countrycode::countrycode(coastlines$country, "country.name", "cowc")
 coastlines$country_code_cow <- countrycode::countrycode(coastlines$country_code_cow, "cowc", "cown")
@@ -173,7 +157,13 @@ geog_coast <- dplyr::left_join(geog, coastlines)
 
 ## Land
 
-```{r}
+```{r land}
+# land border lengths and bordering states
+land_border <- rio::import(paste0(here::here(), "/inst/extdata/cia_world_factbook_landborder.csv"))
+
+# state land area
+land_area <- rio::import(paste0(here::here(), "/inst/extdata/wb_land_area.csv"))
+
 # Prep and join landborder.csv
 land_border$country_code_cow <- countrycode::countrycode(land_border$`Country Name`, "country.name", "cowc")
 land_border$country_code_cow <- countrycode::countrycode(land_border$country_code_cow, "cowc", "cown")
@@ -210,9 +200,15 @@ geog_covariates <- geog_area %>%
 
 # IPE covariates
 
+## Graham and Tucker
+
 Variables from Graham and Tucker IPE dataset
 
-```{r}
+```{r ipe-data}
+# IPE external dataset 
+ipe <- rio::import(paste0(here::here(), "/inst/extdata/ipe_data_resource/3. Graham_Tucker_IPE_v5.RDATA")) %>%
+  sjlabelled::remove_all_labels()
+
 # prep IPE
 ipe <- ipe %>% 
   dplyr::rename(country_code_cow = ccode)
@@ -256,7 +252,7 @@ wdi <- ipe %>%
 
 We follow conventional models that use higher education levels to capture the degree of S&T human capital a state possesses (Early 2014). This is measured as the percent of a state's population with a higher education degree
 
-```{r}
+```{r highered}
 # Load data
 highered <- read.csv(paste0(here::here(),"/inst/extdata/BarroLee_JDE_2013/BL2013_MF1599_v2.2.csv"))
 
@@ -281,7 +277,7 @@ geog_covariates <- dplyr::left_join(geog_covariates, highered)
 
 # Institutional membership
 
-```{r}
+```{r instit-memb}
 mem <- ipe %>%
   dplyr::select(year,
                 country_code_cow,
@@ -295,7 +291,7 @@ mem <- ipe %>%
 
 # Regime type and misc geo
 
-```{r}
+```{r regime}
 misc <- ipe %>%
   dplyr::select(year,
                 country_code_cow,
@@ -314,18 +310,43 @@ misc <- ipe %>%
 
 ## ATOP
 
-```{r}
+```{r atop}
+# ATOP external dataset 
+load(paste0(here::here(), "/inst/extdata/ATOP/atop_alliance.rda"))
+
 # prep and subset ATOP
-atop_sub <- atop %>%
-  dplyr::select(state,
-                year,
-                atopally,
-                number) %>%
-  dplyr::rename(country_code_cow = state,
-                atop_atopally = atopally,
-                atop_atopcount = number) %>%
-  dplyr::mutate(atop_atopally = as.numeric(atop_atopally),
-                atop_atopcount = as.numeric(atop_atopcount))
+atop_sub <- atop_alliance %>%
+  dplyr::filter(atop_defense == 1) %>%
+  dplyr::select(ccode1,
+                ccode2,
+                year)
+
+# Create new vars for alliance strength by merging mil spend and CINC then gathering. Do so using ccode1, since that is the ally who is GIVING the defense pact
+strength <- ipe %>%
+  dplyr::select(year, country_code_cow, cinc_MC, milex_SIPRI) %>%
+  dplyr::rename(ccode1 = country_code_cow) %>%
+  dplyr::mutate(milex_SIPRI = as.numeric(milex_SIPRI))
+
+atop_sub <- dplyr::left_join(atop_sub, strength)
+
+atop_sub <- atop_sub %>%
+  dplyr::select(-ccode1) %>%
+  dplyr::group_by(ccode2, year) %>%
+  dplyr::summarise(cinc_allies = sum(cinc_MC, na.rm = TRUE),
+                   milex_allies = sum(milex_SIPRI, na.rm = TRUE)) %>%
+  dplyr::ungroup()
+
+# merge again to get CINC score for ccode2 then make new column that is ratio
+strength <- strength %>%
+  dplyr::select(-milex_SIPRI) %>%
+  dplyr::rename(ccode2 = ccode1,
+                cinc_main = cinc_MC)
+
+atop_sub <- dplyr::left_join(atop_sub, strength) %>%
+  dplyr::mutate(cinc_allies_ratio = cinc_allies/(cinc_allies + cinc_main),
+                milex_allies = log(milex_allies + 1)) %>%
+  dplyr::select(-cinc_allies, -cinc_main) %>%
+  dplyr::rename(country_code_cow = ccode2)
 
 # Add atop duration variables coded from 04c and merge them into here
 atop_dur <- read.csv(paste0(here::here(), "/inst/extdata/","alliance_duration.csv")) %>%
@@ -344,7 +365,7 @@ From codebook of Kinne JCR 2019: "Defense cooperation agreements (DCAs) are form
 
 In model 2, I swap this variable for dcaGeneralV1, which includes only general DCAs of high or medium confidence. Because these are the most ambitious and extensive DCAs, they may be the only agreements that matter for militarized conflict. Indeed, the estimate is negative and significant at the 1 percent level. The estimate also appears to be substantively meaningful; the odds ratio indicates that a general DCA reduces the probability of a MID by 70 percent, all else equal.
 
-```{r}
+```{r dca}
 # Load data
 dca <- read.csv(paste0(here::here(),"/inst/extdata/Kinne_JCR_2019/DCAD-v1.0-dyadic.csv"))
 
@@ -384,7 +405,7 @@ geog_covariates <- left_join(geog_covariates, dca)
 
 # Merge
 
-```{r}
+```{r merge-all}
 # join external data
 a <- dplyr::left_join(geog_covariates, mc)
 b <- dplyr::left_join(a, si)
@@ -399,15 +420,13 @@ geog_covariates <- g
 # Fix alliance columns
 geog_covariates$NATOwhen_MEM <- NULL
 geog_covariates$NATOdur_MEM[is.na(geog_covariates$NATOdur_MEM)] <- 0
-geog_covariates$atop_atopally[is.na(geog_covariates$atop_atopally)] <- 0
-geog_covariates$atop_atopcount[is.na(geog_covariates$atop_atopcount)] <- 0
 ```
 
 # Great power status
 
 Country-year measure of great power status from Correlates of War data.
 
-```{r}
+```{r greatpower}
 # Read in great power status data
 gps <- read.csv(paste0(here::here(),"/inst/extdata/COW/majors2016.csv"))
 
@@ -437,7 +456,7 @@ geog_covariates$greatpower[is.na(geog_covariates$greatpower)] <- 0
 
 Variable indicating whether a country-year was a member of a rivalry. We take this from Thompson's international rivalries dataset.
 
-```{r}
+```{r rivalry}
 # Load data
 rival <- read.csv(paste0(here::here(),"/inst/extdata/Miller_rivalries/strategic_rivalries.csv"))
 
@@ -480,7 +499,7 @@ geog_covariates <- geog_covariates %>%
 
 ## COW war
 
-```{r}
+```{r cow-war}
 # Load COW war data
 cow <- read.csv(paste0(here::here(),"/inst/extdata/COW/Inter-StateWarData_v4.0.csv"))
 
@@ -538,7 +557,7 @@ geog_covariates <-
 
 ## MID history
 
-```{r}
+```{r mid}
 # Load participant-level data
 mid <- haven::read_dta(paste0(here::here(),"/inst/extdata/COW/MIDB 4.3.dta"))
 mid_fatal <- mid
@@ -604,7 +623,7 @@ geog_covariates$mid_fatal_binary[is.na(geog_covariates$mid_fatal_binary)] <- 0
 
 ## Gibler revised MID history
 
-```{r}
+```{r gibler-mid}
 # Read partipant level GML MID data
 gibler <- read.csv(paste0(here::here(),"/inst/extdata/Gibler_ISQ_2016/gml-midb-2.1.csv"))
 
@@ -673,7 +692,7 @@ geog_covariates$gibler_fatal_count[is.na(geog_covariates$gibler_fatal_count)] <-
 
 Latent measure of threat enviro from Markowitz and Fariss 2018
 
-```{r}
+```{r threatenviro}
 fm <- read.csv(paste0(here::here(),"/inst/extdata/Markowitz-Fariss_JPR_2018/fm2017_masterdata.csv"))
 
 fm <- fm %>%
@@ -686,6 +705,6 @@ geog_covariates <- dplyr::left_join(geog_covariates, fm)
 
 # Save data
 
-```{r}
+```{r save}
 saveRDS(geog_covariates, paste0(here::here(), "/data/02_EV.rds"))
 ```

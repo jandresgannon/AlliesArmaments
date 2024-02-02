@@ -81,8 +81,19 @@ df_full <- df_full %>%
                 interstatewar_5yrlag_binary = as.factor(interstatewar_5yrlag_binary),
                 country = as.factor(country),
                 decade = as.factor(decade),
+                year_base = (year - 1970),
                 year_sq = (year - 1970)^2,
-                year_cube = (year - 1970)^3)
+                year_cube = (year - 1970)^3) %>%
+  dplyr::relocate(dplyr::starts_with("spec_"), .after = in_iiss)
+
+# Minor cleaning
+df_full <- df_full %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(!(year == 1972 &
+                    country == "Vietnam" &
+                    is.na(interstatewar_5yrlag_binary))) %>%
+  dplyr::distinct() %>%
+  tibble::rowid_to_column(var = "id")
 
 # Save this as the master dataframe
 saveRDS(df_full, paste0(here::here(), "/data/","03_DF-full.rds"))

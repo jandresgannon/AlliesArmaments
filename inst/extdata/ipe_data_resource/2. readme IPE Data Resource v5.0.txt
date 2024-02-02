@@ -1,0 +1,25 @@
+Graham IPE Data Resource V5.0 Readme
+Benjamin A.T. Graham
+and Jacob R. Tucker
+July 27, 2022
+
+
+This document briefly describes the Master IPE dataset and associated files. 
+
+
+-​ The​ ​​IPE Data Resource Codebook V4.0 "IPE Codebook Public Version 5.0”
+	This is the codebook that lists all the datasets used, their sources, the data cleaning involved in the preparation process, citations, codebooks, and all the variables included in the data resource.
+
+-​ ​ ​The IPE Data Resource V5.0 "Graham_Tucker_IPE_v5_0.tsv” and “Graham_Tucker_IPE_v5_0.RDATA”, and "Graham_Tucker_IPE_v5_0.RDS".
+	These are the master data .tsv, .RDATA, .RDS files, which have all countries and years, with nothing dropped or discarded. They are the product of merging many of the most common international political and economic datasets together. These two files are identical, but one is for use in R and the other for use in STATA.
+
+
+- The prepped data files “preppeddata v5.0”​, prefixed​ “PREPPED”. These are the cleaned data for each component dataset. 
+
+- The ​append ids file "append_ids.R​"​ 
+        This .R file is called by each prep file using the R command dataframe = append_ids(dataframe) which runs the function append_ids as if it were included in each individual prep file. This appends the Gleditsch-Ward numbers, Gleditsch-Ward abbreviations, the COW Country Codes, IFS country abbreviation,​ ​IFS Codes, and ​standardizes the country names in each dataset. 
+
+- The merge prep ​code files “prep scripts v5.0” for each component dataset, ​prefixed "P​​rep_". Each .do and .R file formats the data in a given component dataset into GWNO or GWNO-year arrangements. Each .do and .R file also lists the source of the data at the top of the file. These files allow users to see the details of the data cleaning for each component dataset. Note that in order to run these files you will need to set global variables containing the file paths to where you have stored the raw data and prepped data.
+
+- The ​ Master Merge file "ipe_master_merge_v5.R”
+	This R script assembles all the prepared component datasets in a single file. Data was merged by Gleditsch-Ward country code number (gwno) and year.

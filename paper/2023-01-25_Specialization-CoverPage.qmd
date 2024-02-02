@@ -1,0 +1,62 @@
+---
+title: 'Allies as Armaments: Explaining the Specialization of State Military Capabilities'
+author:
+  - name: J Andrés Gannon
+    email: "andres.gannon@gmail.com"
+    url: jandresgannon.com
+    affiliation: Council on Foreign Relations
+format:
+  pdf:
+    fig-format: png
+    thanks: The author is thankful to many who provided feedback on earlier and related drafts, including but not limited to Steven Brooks, Rosella Cappella Zielinski, Jonathan Cavereley, Rex Douglass, Benjamin O. Fordham, Erik Gartzke, Stacie Goddard, Nadiya Kostyuk, Kendrick Kuo, David Lake, Brett Ashley Leeds, Erik Lin-Greenberg, Paul MacDonald, Michaela Mattes, Steven Miller, Sara Plana, Paul Poast, Abigail Post, Philip Roeder, Sebastian Rosato, Erik Sand, Thomas Leo Scherer, Kaija Schilde, Todd Sechser, Branislav Slantchev, Jennifer Spindel, Sanne Verschuren, and many others. This project could not have happened without help from the many research assistants helped construct the rDMC dataset on which this article relies, This project benefited from financial support from the UC San Diego Center for Peace and Security Studies (cPASS), Harvard Kennedy School Belfer Center for Science and International Affairs, the Smith Richardson Foundation, Stanton Nuclear Foundation, the Department of Defense Minerva Initiative, the Charles Koch Foundation, and the APSA Centennial Center.
+    number-sections: true
+    fontsize: "12"
+editor: visual
+execute:
+  echo: false
+  warning: false
+  cache: true
+abstract: \singlespacing \noindent Scholars and practitioners have long maintained that, for capable states, a full-spectrum military provides the best security in an unpredictable anarchic world. However, not all states seem to make this choice, with some capable states have imbalanced, specialized militaries. Are specialized militaries that forgo the development of vital defense capabilities and overinvest in seemingly less necessary ones simply making mistakes? I argue that there are conditions under which states can reap the gains of economic efficiency that stem from specialization without sacrificing the security benefits of a full-spectrum force. Because defense alliances build trust, minimizes the risk of defection, and foster coordination, states with militarily-capable alliance partners can individually specialize in military capabilities that, when brought together, still comprise a full-spectrum military force. I substantiate these arguments with a new measure of military portfolio specialization using fine-grained data on state military assets from 1970-2014.
+header-includes:
+- \usepackage{tikz}
+- \usepackage{pgfplots}
+- \pgfplotsset{compat=newest}
+- \usetikzlibrary{plotmarks}
+- \usetikzlibrary{arrows.meta}
+- \usepgfplotslibrary{patchplots}
+- \usepackage{grffile}
+- \usepackage{caption}
+- \usepackage[utf8]{inputenc}
+- \usepackage[doublespacing]{setspace}
+- \AtBeginEnvironment{tabular}{\singlespacing}
+- \usepackage{float}
+- \usepackage{multirow}
+- \usepackage{tablefootnote}
+- \usepackage{pifont}
+- \usepackage{newunicodechar}
+- \usepackage{booktabs}
+- \usepackage{siunitx}
+- \usepackage{tabularx}
+- \newunicodechar{✓}{\ding{51}}
+bibliography: ForceStructure.bib
+---
+
+```{r knitr_options}
+library(knitr)
+library(kableExtra)
+library(magrittr)
+library(ggplot2)
+library(ggtext)
+```
+
+```{r load data}
+df_raw <- readRDS(paste0(here::here(), '/data/rDMC_raw_v1.rds'))
+
+df_long <- readRDS(paste0(here::here(), '/data/rDMC_long_v1.rds')) %>%
+  dplyr::filter(year <= 2014)
+
+df_wide <- readRDS(paste0(here::here(), '/data/rDMC_wide_v1.rds')) %>%
+  dplyr::filter(year <= 2014)
+
+df_full <- readRDS(paste0(here::here(), '/data/03_DF-full.rds'))
+```

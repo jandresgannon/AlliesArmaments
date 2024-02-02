@@ -1,0 +1,449 @@
+---
+title: 'Allies as Armaments: Explaining the Specialization of State Military Capabilities'
+author:
+  - name: J Andrés Gannon
+    email: "andres.gannon@gmail.com"
+    url: jandresgannon.com
+    affiliation: Vanderbilt University
+format:
+  pdf:
+    fig-format: png
+    number-sections: true
+    fontsize: "12"
+    keep-tex: true
+    thanks: The author is thankful to many who provided feedback on earlier and related drafts, including but not limited to Steven Brooks, Rosella Cappella Zielinski, Jonathan Cavereley, Rex Douglass, Benjamin O. Fordham, Erik Gartzke, Stacie Goddard, Nadiya Kostyuk, Kendrick Kuo, David Lake, Brett Ashley Leeds, Erik Lin-Greenberg, Paul MacDonald, Michaela Mattes, Steven Miller, Sara Plana, Paul Poast, Abigail Post, Philip Roeder, Sebastian Rosato, Erik Sand, Thomas Leo Scherer, Kaija Schilde, Todd Sechser, Branislav Slantchev, Jennifer Spindel, Sanne Verschuren, and many others. This project could not have happened without help from the many research assistants helped construct the rDMC dataset on which this article relies, This project benefited from financial support from the UC San Diego Center for Peace and Security Studies (cPASS), Harvard Kennedy School Belfer Center for Science and International Affairs, the Smith Richardson Foundation, Stanton Nuclear Foundation, the Department of Defense Minerva Initiative, the Charles Koch Foundation, and the APSA Centennial Center.
+editor: visual
+execute:
+  echo: false
+  warning: false
+  cache: true
+date: today
+date-format: long
+abstract: \singlespacing \noindent Why do states under-produce some military capabilities and over-produce others in ways that seem to leave them vulnerable? This article argues alliances help explain states' decisions to specialize defense. By reducing the risks of under-producing some capabilities and creating an incentive to over-produce others, alliances enable states to achieve the benefits of specialization and diversification simultaneously. Using granular military capability data, this paper develops the first systematic measurement of military specialization and finds states with militarily-capable alliance partners are more likely to specialize their own militaries. This finding suggests a new interplay between seemingly opposing strategies for defense that challenges existing perspectives on internal versus external balancing. In identifying how alliances shape the composition of arms, these findings have important implications for current debates about burden-sharing and motivate future research explaining armament decisions and the consequences of alliances.
+header-includes:
+- \usepackage{tikz}
+- \usepackage{pgfplots}
+- \pgfplotsset{compat=newest}
+- \usetikzlibrary{plotmarks}
+- \usetikzlibrary{arrows.meta}
+- \usepgfplotslibrary{patchplots}
+- \usepackage{grffile}
+- \usepackage{caption}
+- \usepackage[utf8]{inputenc}
+- \usepackage[doublespacing]{setspace}
+- \AtBeginEnvironment{tabular}{\singlespacing}
+- \usepackage{float}
+- \usepackage{multirow}
+- \usepackage{tablefootnote}
+- \usepackage{pifont}
+- \usepackage{newunicodechar}
+- \usepackage{booktabs}
+- \usepackage{siunitx}
+- \usepackage{tabularx}
+- \newunicodechar{✓}{\ding{51}}
+bibliography: ForceStructure.bib
+---
+
+```{r knitr_options}
+library(knitr)
+library(kableExtra)
+library(magrittr)
+library(ggplot2)
+library(ggtext)
+```
+
+```{r load data}
+df_raw <- readRDS(paste0(here::here(), '/data/rDMC_raw_v1.rds'))
+
+df_long <- readRDS(paste0(here::here(), '/data/rDMC_long_v1.rds')) %>%
+  dplyr::filter(year <= 2014)
+
+df_wide <- readRDS(paste0(here::here(), '/data/rDMC_wide_v1.rds')) %>%
+  dplyr::filter(year <= 2014)
+
+df_full <- readRDS(paste0(here::here(), '/data/03_DF-full.rds'))
+```
+
+\newpage
+
+# Introduction {#sec-intro}
+
+Despite constitutional restrictions on its military, Japan began shifting its defense investments in the late 1970's. By 1982, Prime Minster Suzuki had drawn up plans to overhaul Japan's military by investing primarily in air defense and light offshore surface ships designed the counter the concerning increase in Soviet naval forces [@modly_rhetoricrealitiesjapan_1985]. Although the end of the Cold War marked the end of the Soviet threat in the Western Pacific, it was soon replaced with Japanese concerns about Chinese expansion and the island-chain state's vulnerability to a blockade [@suzuki_explainingjapanresponse_2018]. But over the following decade, Japan's defense capabilities continued shifting and by the turn of the century Japan had doubled its air defense and short-range aerial capabilities but almost completely phased out its amphibious fleet and coastal ships, despite their clear utility in countering a potential blockade [@twomey_japancircumscribedbalancer_2000, 185-188; @lind_pacifismpassingbuck_2004, 107-110]. In specializing in air defense while neglecting amphibious and coastal capabilities, Japan's military portfolio appears to have left it unnecessarily vulnerable.
+
+This is exemplary of a common phenomenon in international politics. Conventional wisdom holds that because the primary purpose of a state's military is to provide security against perceived foreign dangers [@waltz_theoryinternationalpolitics_1979, 102-114], most states should invest in a diversified full-spectrum force, hedging their bets in an unpredictable international environment by compensating for the inherent weaknesses of any one set of capabilities, or prioritize strengthening defenses against the most salient threats [@biddle_militarypowerexplaining_2005, 199-200]. However, there are myriad examples like Japan's of a capable state possessing a seemingly vulnerable military that specializes by under-producing some capabilities and over-producing others. The US omitted minesweepers during President Reagan's 600-ship rebuilding plan despite their low cost and the fact that 13 of the 15 US ships sunk since World War II were victims of naval mines -- a decision that caused serious problems in the late 1980's during the Iran-Iraq Tanker War [@till_holdingbridgetroubled_2005]. Given its 225 mile coastline, Albania's decision in the early 2000's to purchase dozens of open-water patrol vessels that could reach Portugal's coast 1,750 miles away seems a poor fit for their self-defense needs, especially considering the disintegration of the military and looting of defense installations just a few years prior left them without any functioning battle tanks [@hendrickson_albanianatoopen_2006, 253-254; @polak_natomembershipalbania_2009]. Estonia's sophisticated cyber capabilities have been frequently lauded, but those sizable investments have occurred alongside divestment of their entire combat aircraft fleet, even in the presence of increasingly warranted concern about Russian aggression and possible invasion [@andzans_deterrencedilemmalatvia_2017]. Why do some countries have gaps in their militaries that they could fill, but choose not to, or excesses and redundancies they could avoid, but maintain?
+
+My central argument is that the extent to which a state specializes its defense capabilities can, in part, be explained by alliance participation. Alliances reduce the costs of forgoing some defense assets and also increase the benefits of over-producing others. By gaining protection from your allies' armaments, alliances allow states to simultaneously garner the benefits of a collectively diversified set of arms while lowering the risk of -- and creating an additional incentive for -- individually specialized militaries. The result is variation in the composition of military capabilities across states - some being comparatively more specialized. Empirically, this paper examines state-level military specialization and alliance relationships from 1970 to 2014 and finds that states with more militarily-capable alliance partners specialize their militaries more than those with weak or non-existent allies. When it comes to zero-sum resource allocation to defense, alliances allow states to have their cake and eat it, too, garnering the benefits of diversification and specialization simultaneously.
+
+This article makes a number of contributions to the study of international politics. For one, it develops the first rigorous and systematic measurement of an important, yet under-studied dimension of armament decisions: military specialization. Despite a general acceptance that militaries differ, scholars have been unable to identify those differences in degree or kind. In doing so, this paper also introduces a novel theory of specialization within alliances that has significant implications for our understanding of two foundational trade-offs in international politics: guns versus butter [@powell_gunsbutteranarchy_1993; @poast_sinewwarpolitical_2019] and external versus internal balancing [@altfeld_decisionallytheory_1984; @morrow_armsalliestradeoffs_1993]. Diversifying one's "guns" may maximize security under anarchy, but it produces a higher defense burden that necessitates less resources available for "butter". But by influencing the *types* of armaments states produce, alliances can minimize that guns versus butter trade-off through specialization-induced efficiency improvements [@kinne_freeridingnetwork_2023]*.* Regarding the second trade-off, although states can provide for their defense by arming (internal balancing) or forming alliances (external balancing), a common and influential view holds there are inherent inefficiencies and risks associated with the latter [@walt_allianceformationbalance_1985; @oneal_theorycollectiveaction_1990]. Because self-interested states only abide by international agreements that involve decisions they would have made otherwise [@downs_goodnewscompliance_1996, 388-390], attempts to jointly produce public goods like security through alliances that are little more than "temporary marriages of convenience" [@mearsheimer_falsepromiseinternational_1994, 11] are inevitably haunted by incentives to exploit, renege, and free ride [@olson_economictheoryalliances_1966, 3; @snyder_securitydilemmaalliance_1984]. But alliances do not jointly produce security simply by aggregating defense [@morrow_alliancesasymmetryalternative_1991]; alliances *reconstitute* each participant's defense capabilities via this under-appreciated mechanism of specialization. Allies and armaments are not two different ways a state can provide for its security [@conybeare_armsalliancescapital_1994; @diehl_substitutescomplementseffects_1994], they are fundamentally intertwined in a more complex manner which requires rethinking our current understanding of their substitutable or complementary nature as well as how states try to strike the optimal balance between them.
+
+In the next section, I describe existing research concerning the factors that determine a state's force structure in general, and more specifically why states sometimes pursue a specialized distribution of military capabilities. @sec-theory introduces a model of the trade-offs in choosing a specialized or diversified defense portfolio, theorizing alliances efficiently address that trade-off by sufficiently minimizing the risks inherent in specialization. @sec-empirics empirically tests this theory using a new entropy-based measure of military portfolio specialization adapted from statistical ecology and applying it to annual data on disaggregated national military capabilities since 1970. @sec-conclusion concludes by discussing the implications of these findings and motivating future research on how alliances, and other factors, explain why states have the weapons that they do.
+
+# Existing explanations for the distribution of military capabilities {#sec-lit}
+
+State militiaries differ in more than size. Although commonly accepted, this observation is seldom theorized and even more rarely measured. Instead, material military power is homogenized and aggregated using broad indices like the Composite Index of National Capabilities (CINC) [@singer_capabilitydistributionuncertainty_1972] or military expenditures [@omitoogun_militaryexpendituredata_2006] where scholars explain variation in the *size* of state militaries with less attention paid to variation in *composition*.[^1] Yet much of international politics and interstate conflict requires understanding variation in how states arm and why. The combination of capabilities that comprise a military's toolkit determine the operations it plans for and undertakes, the types of threats it can credibly make, and the consequences of resorting to force [@buzan_introductionstrategicstudies_1987; @betts_shouldstrategicstudies_1997].
+
+[^1]: On the shortcomings of measuring material military power using commonly-used aggregate measures like CINC, SIPRI, and national military spending, see @brzoska_reportingmilitaryexpenditures_1981, @lebovic_usingmilitaryspending_1999, @kadera_measuringnationalpower_2004, @kim_comparingmeasuresnational_2010, @mawdsley_comparingmilitarieschallenges_2016, @crisher_powernationalcapability_2017, @smith_militaryexpendituredata_2017, @perlo-freeman_siprinewlong_2017, @beckley_powernationsmeasuring_2018, @carroll_predictionproxiespower_2019, @becker_disaggregateddefensespending_2022, @souva_materialmilitarypower_2022, and @gannon_planestrainsarmored_2023.
+
+Similarly, state militaries differ due to more than necessity. Certainly, constraints placed by geography [@edstrom_eaglebearexplaining_2020] and economic capacity [@brooks_producingsecuritymultinational_2005; @horowitz_diffusionmilitarypower_2010, 30-39] explain why few landlocked states harbor sizable navies and why primarily industrially advanced states can threaten ballistic missiles across continents. But unlike militaries, geography is fairly constant over decades, if not centuries, and it is unclear what geographic factors would explain a highly specialized versus a highly diversified military portfolio. Economic capacity is also indeterminate in making comparisons across both states and time as a wealthy state insensitive to costs could afford to build more of everything or could conversely develop only a high-technology advanced force. These environmental factors serve as important scope conditions, but the decision-making process surrounding the compositions of a states arms is fundamentally political since some set of actors deliberately chooses the distribution of military capabilities available to a state [@caverley_unitedstateshegemony_2007]. Early debates about the political determinants of a state's weapons development were framed around internal versus external causes [@evangelista_innovationarmsrace_1988].[^2] Theorists forwarding internal explanations argued that because there was no single authority for weapons development decisions [@allison_armamentsarmscontrol_1975], the composition of a state's military was determined by domestic factors like bureaucracy [@farrell_weaponscausepolitics_1997], constituency interests [@higgs_hardcoalsmake_1988], or scientific R&D culture [@zuckerman_nuclearillusionreality_1982]. In contrast, external cause advocates argued armament decisions were primarily a strategic response to foreign threats [@mcnamara_remarkssecretarydefense_1967; @waltz_theoryinternationalpolitics_1979].
+
+[^2]: Although geared toward explaining military doctrine rather than force structure, @posen_sourcemilitarydoctrine_1984 identifies a similar dichotomy in organizational theory (internal) versus balance of power (external) explanations based on much of the same research cited here.
+
+Theories of internal sources of armament decisions have typically tried to explain weapons acquisition more generally, rather than identifying whether those weapons acquisitions are consistent with a specialized or diversified aggregate military portfolio. These theories identified the role of economic support for influential defense contractors [@kurth_whywebuy_1973], although others believe a strict regulatory environment limits this [@mawdsley_armamentsdecisionmakingare_2018]. Separately, re-election incentives may explain weapon developments that generate jobs or shore up nationalism [@carter_senatedefensebudgeting_1989; @whitten_butterygunswelfare_2011] despite disagreement about the empirical record [@lindsay_testingparochialhypothesis_1991]. Similarly, political ideology and regime type may shape preferences for or against a particular military capability, as evidenced by trade protectionist support for battleship fleet development [@kehr_battleshipbuildingparty_1975; @fordham_domesticpoliticsworld_2019] and autocratic concerns about regime security [@way_makingitpersonal_2014]. Socially-driven domestic considerations point to the importance of non-state actors and incentives, but are less tied to the assumption of egoistic profit motivations and political self-interest. Instead, the weapons a state develops may be decided by scientists and technologists [@zuckerman_nuclearillusionreality_1982], although this perspective has been challenged by further empirical examinations of the same Cold War case studies [@mackenzie_shapingnuclearweapon_1988a]. More sociological theories have posited that status concern explains particular weapons acquisitions like high-technology aircraft or naval carriers [@eyre_statusnormsproliferation_1996; @hintz_symbolicamplificationsuboptimal_2022] but only in limited empirical cases.
+
+While domestic politics certainly influences acquisition decisions, production capacity, and innovation patterns, their implications for the overall composition of a state's military and the dimension of interest (military specialization) is less clear [@art_bureaucraticpoliticsamerican_1973; @horowitz_diffusionmilitarypower_2010, 57-60]. These theories do not generate testable predictions like whether, for example, states with an influential military-industrial complex are more likely to have a highly specialized force structure or whether one should expect states with divided governments or protectionist politicians to have a less specialized military [@rhodes_bureaucraticpoliticsmatter_1994]. Domestic institutions may create biases toward the status quo by imposing constraints on changes to one's military, but that stickiness explains consistency rather than the changes observed within a country over time [@halperin_bureaucraticpoliticsforeign_1974].
+
+Given the indeterminacy of domestic political explanations for *aggregate* distributions of military capabilities, conventional wisdom has largely coalesced around "external cause" theories where variation across militaries is explained by the perceived best response to security threats [@walt_originsalliances_1987, 263-266; @owens_balancedforcestructure_2006; @resende-santos_neorealismstatesmodern_2007; @nordhaus_effectsinternationalsecurity_2012]. For neo-realists, this external threat motivation predicts little variation across militaries beyond that attributable to geography and economic capacity. As @waltz_theoryinternationalpolitics_1979 [p. 127], put it, the anarchic self-help system means "contending states imitate the military innovations contrived by the country of greatest capability and ingenuity. And so the weapons of major contenders, and even their strategies, begin to look much the same all over the world."[^3] Importantly, this similarity in military profile is true even when states face a common enemy. Because states cannot resolve the problem of credibly relying on one another and power is distributed "to protect no group purpose", the self-help nature of the international system should prevent states from being able to functionally differentiate their military capabilities by relying on each other [@posen_sourcemilitarydoctrine_1984, 36-37]. Rather than resort to alliances, "states rely relentlessly both on arming and on imitating the successful military practices of peer competitors" [@parent_balancingneorealism_2015, 52]. Since the absence of an international sovereign makes cooperation under anarchy difficult, states try to maximize their security through a full-spectrum approach to defense where each states acquires the military capabilities they deem necessary (and feasible) for their national security [@till_maritimestrategytwenty_1994].[^4]
+
+[^3]: For more contemporary theories of military emulation and convergence, see @elman_foreignpoliciessmall_1995, @resende-santos_anarchyemulationmilitary_1996, @goldman_systemiceffectsmilitary_1999 \[82-83\], @mearsheimer_tragedygreatpower_2001 [166-167], and @parent_balancingneorealism_2015 [56-65].
+
+[^4]: Although the claim states desire/need all military capabilities is a simplified theoretical ideal type that is rarely, if ever, realized empirically, the logic that a jack of all trades is safer than being a master of one holds true for state leaders deciding what resource allocation is best for security.
+
+Even when the threat-response model diverges from the neo-realist assumption of like-units and sameness, such theories predict specialization but not by whom, when or to what measurable degree.[^5] Many of the cases of specialization observed in @sec-intro are unexplained because they are cases of omitting or over-producing military capabilities in ways that seem to produce, rather than address, vulnerability given a state's immediate security threats. Albania did not build open-water patrol vessels because of fear of Portuguese revisionism, nor did the US omit minesweepers because the threat of mines in strategic waterways had gone away. Specialization has known benefits, but this does not explain why states seem to put security second in forgoing the benefits of diversification or specializing in patterns we cannot identify or that threat-response doesn't seem to explain.
+
+[^5]: An extensive literature has detailed shortcomings of the like-unit assumption (e.g. @onuf_worldourmaking_1989, @watson_evolutioninternationalsociety_1992, @buzan_logicanarchyneorealism_1993, @ruggie_multilateralismmatterstheory_1993, @spruyt_sovereignstateits_1994, @deudney_bindingsovereignsauthorities_1996, @wendt_hierarchyanarchyinformal_1995, @paul_sovereigntysurvivalwestphalian_1999, @lake_newsovereigntyinternational_2003, @lake_escapestatenature_2007, and @sharman_internationalhierarchiescontemporary_2013).
+
+# A theory of specialization within alliances {#sec-theory}
+
+## Costs and benefits of specialized defense
+
+In allocating resources to defense, states face a constrained optimization problem where the set of resources available to accomplish this task are finite, involving a zero-sum balance between allocating resources toward many capabilities or toward a few.[^6] Investing in a diversified military portfolio is efficacy-optimizing because it reduces a state's overall vulnerability, but at a relatively higher economic cost. In contrast, investing in a specialized military portfolio is efficiency-optimizing because it comes with economies of scale and improved integration, but at the risk of not having capabilities it may need. Understanding the relative costs of different defense portfolios along this spectrum is important for understanding not only the consequences of a particular choice, but also why the certainty with which a reader believes one is commonly observed is matched only by the certainty with which another reader believes that distribution should rarely be observed.
+
+[^6]: I largely bracket the preferences of domestic actors and instead consider how these aggregate to state-level armament decisions. For contrasting views on this assumption, see @sandler_politicaleconomynato_1999 and @fevolden_defenceindustrialpolicy_2016.
+
+The costs and benefits of both ends of the dimension of interest - specialization and diversification - are summarized in @fig-spectrum_specialization. Although the benefits of military specialization initially seem like economic issues that should take a backseat to security considerations, the two are inevitably intertwined because a state's decisions about how to best provide for its defense occur within a constrained optimization environment. Thus, economically-conscious defense decisions impact how well a state will be able to provide for its security and how well various aspects of their defense portfolio work with one another during conflict. The three primary benefits of specialization stem from economies of scale, operational efficiency, and improved integration.
+
+```{r, engine='tikz', echo=FALSE}
+#| label: fig-spectrum_specialization
+#| fig-cap: "Varieties of a state's distribution of military capabilities."
+
+\begin{tikzpicture}
+
+  % Baseline
+    \draw [<->, thick] (0,0) -- (8,0);
+                    
+    % Labels            
+    \draw (0,0) node[above = 3pt, align = center] {Diversification} 
+        node[below = 3pt, align = center] {$\cdot$ \small Available capabilities \\ $\cdot$ \small Reduced vulnerability};
+    \draw (8,0) node[above = 3pt, align = center] {Specialization} 
+        node[below = 3pt, align = center] {$\cdot$ \small Economies of scale \\ $\cdot$ \small Operational efficiency \\ $\cdot$ \small Improved integration};
+                    
+    % Headers
+    \draw (-4,0) node[above = 3pt, align = center] {\textbf{Distribution of} \\ \textbf{Military Capabilities}} 
+        node[below=9pt, align = center] {\textbf{Benefits}};
+
+\end{tikzpicture}
+```
+
+First, the cost of setting up manufacturing and acquiring the materials for weapons acquisition entail large upfront investment. But the marginal cost of that investment goes down as a state decides to produce more of the same asset [@markowski_challengesdefenceprocurement_1998]. For example, Germany has reduced the need for redundant infrastructure by centralizing car and light truck production all within the Bundeswehr-Fuhrparkservice GmbH which allows them to produce newer but less varied vehicles more quickly [@overhage_poolitshare_2013]. Economies of scales are also "active" in that they accrue as a state undertakes defense-related activities, so the more a state operates with a particular asset, the lower their marginal costs because of "learning by doing" [@postrel_islandssharedknowledge_2002]. Even states that are primarily "arms buyers" as opposed to "arms builders" experience reduced maintenance and repair costs from a shorter list of components and end-use products.[^7]
+
+[^7]: There are, of course, still differences in accrued economies of scale from indigenous production as opposed to purchasing foreign equipment for one's own military [@neuman_armstransfersmilitary_1994; @brooks_producingsecuritymultinational_2005; @devore_armscollaborationdilemma_2011; @vonhlatky_strikingdealf35_2018]. Given the difficulty in acquiring large-scale data on the domestic producers of different component parts in multi-national arms production arrangements, this paper simply argues that there are some positive economies of scale in specialization, even for arms buyers, and leaves future research to identify the difference in degree across these two mechanisms of making versus buying.
+
+Second, specialization allows a military to perform select missions more efficiently by streamlining logistics and reducing the overall cost of learning how to use new equipment. Many assets require capability-specific investments that involve a fixed cost. A state with several dozen different types of aircraft will require more complex pilot training than a state that only has to master the effective use of a few types of aircraft. One source of NATO's debate over who should send main battle tanks to Ukraine concerns Ukraine's familiarity with how those more complex systems work; they could immediately operate T-72 tanks sent from Eastern Europe, but training and logistics for the US Abrams tank would take months [@lanoszka_artpartialcommitment_2023, 6-10].
+
+Third, integration is easier as a country specializes since the complexity of integrating numerous types of platforms with various roles and responsibilities decreases. Even issues as fine-grained as the software used in various pieces of equipment are sufficient impediments to military operations that nations consider this issue carefully. NATO's Standardization Agreement (STANAG), for example, ensure broad fleet compatibility with the same fuel nozzle. In 2019, Jordan gave up its Chinese-built CH-4 drone fleet because successful integration with other platforms was going to require a costly overhaul of their entire communications system [@penney_modernizinguavexport_2020].
+
+In contrast to specialization, the benefits of diversification concern the security gains of a full-spectrum military that makes combined arms warfare possible [@biddle_militarypowerexplaining_2005]. States that engage in a full-spectrum approach to warfare instead of specializing benefit from having more of the capabilities needed to defend themselves because "each weapon, unit, and technique possesses a unique set of capabilities and vulnerabilities. Taking full advantage of these military assets increases the likelihood that an armed force will fulfill its mission" [@millett_effectivenessmilitaryorganizations_1986, 52]. No weapons system is perfect, and the nature of warfare means weapons systems that excel at one aspect of international conflict do so precisely because they lack other abilities. Aerial bombers sacrifice maneuverability so that they have carry a high payload. But more maneuverable aircraft like fighters achieve the benefits of speed with lower ordinate payloads. Far from just a tactical consideration, this diversification is a political and strategic concern since higher-order state objectives like credibility, effectiveness, and efficiency are advanced by military platforms in varying and often zero-sum ways. "Military specialization imposes opportunity costs in terms of what a nation does well and where it must compromise its capabilities. Choices about what to buy, and where and how to field the nation's military might, then pose certain constraints on political strategy" [@lindsay_politicsmanyother_2022, 346].
+
+Diversification also reduces vulnerability by making it more difficult for the adversary to develop countermeasures. A state with a limited variety of assets has given their adversary a shorter list of capabilities they must be able to defeat to prevail in combat. Air defense systems, for example, come in three different varieties; surface-to-air missiles (SAM), anti-aircraft artillery (AAA), and aircraft armed with air-to-air missiles (AAM). These systems all differ in the altitudes they can target, stealth, reaction times, mobility, and cost. In a 1940 testimony before the Senate Appropriations Committee, General George Marshall noted the need for both aircraft and anti-aircraft artillery because the former is an area system that excels at searching while the latter is a point system designed to protect key assets. When asked by Congress which was most important he said all of them; "the whole thing is interwoven...all these matters have to be given proper weight to get a well integrated and balanced whole" [@hammel_roadbigweek_2010]. A state that has chosen to develop only one of these capabilities might have more in quantity (scale economies) and quality (operational efficiency and improved integration), but they are now vulnerable to the development of new missiles and aircraft designed to circumvent the strengths of their adversary's one air defense system [@gartzke_determinantsnuclearforce_2014, 484-485].
+
+Former US Chairman of the Joint Chiefs of Staff Colin Powell [-@powell_myamericanjourney_2010, 157] described a diverse, full-spectrum force as involving the ability to "prevail, quickly, and cheaply, in any and all forms of conflict". States that have not embraced this model have consequently suffered. After the Yom Kippur war, Israel opted to specialize their military by cutting artillery and mechanized infantry in favor of a shift to pure armor-aircraft. This left them vulnerable to an anti-armor and anti-aircraft attack that set them back in the early stages of the 1973 Arab-Israeli War. It was only after they reversed course that they were able to defeat the Egyptian air defense systems [@herzog_waratonementstory_2018]. After World War II, India's Naval Plan Paper [-@navalplanpaper_1947] made the case for a "balanced naval task force" which was later explained by Vice Admiral Parry [-@parry_indiaseapower_1949] as a move to reduce India's vulnerability with a navy "containing all types of ships and aircrafts, on the sea, over the sea, and under the sea".
+
+## Alliances increase the expected benefits of specialization
+
+Even well-resourced states experience difficulty excelling at all forms of conflict simultaneously [@lake_technologyqualitativesuperiority_2012, 91]. Making priorities is both a product of luxury and of necessity. An actor can overcome this constrained optimization problem and minimize the trade-off between diversification and specialization through security cooperation.[^8] Working with partners allows for individual functional specialization under the auspices of a broader defense arrangement. A parsimonious way to think about this in the international context is defense alliances, since they are an indication of the two prerequisites for security cooperation with a committed partner: (1) belief in a partner's willingness to play a role in improving your well-being and (2) their ability to do so [@morrow_alliancescredibilitypeacetime_1994; @leeds_alliancesdeteraggression_2003].[^9] Specialization is thus not a questionable prioritization of efficiency by states choosing to forgo the security benefits of a diversified military, but instead a way to get the best of both worlds made possible by architectures of international cooperation.
+
+[^8]: This theory is derived from business organization research on inter-firm cooperation [@gulati_strategicnetworks_2000; @meier_culturetrustdivision_2019].
+
+[^9]: These two conditions exist more generally for theoretical cooperation [@deutsch_cooperationtrusttheoretical_1962]. I choose the language "well-being" rather than "security" because this also applies to asymmetric alliances where instead of seeking protection, the dominant state may be seeking autonomy to advance pursuit of its preferred foreign policy outcomes [@morrow_alliancesasymmetryalternative_1991, 907-909].
+
+Alliances increase the payoffs of military specialization in a few ways. Having allies who you believe will come to your defense allows a state to allocate resources toward non-security functions since defense resources are aggregated. In spending less on your own militarily, you can under-invest in certain capabilities that have high marginal production cost at current levels. Practitioners have recognized how the resource re-allocation benefits of alliances translate to focused specialization. US Naval Rear Admiral @smith_strategiccooperationeverybody_2013 noted that by having a cooperative approach, "each nation can avoid duplication and thereby reduce its proportional share of the expense. This is...about a focused and pragmatic approach to force allocation that acknowledges allies' existing contributions. Countries could immediately apply the freed resources to unique national missions."
+
+Second, the resource gains under cooperation are more than the sum of their parts because of scale economies. Collective defense can be more than the sum of its parts if specialized actor bring a smaller variety of capabilities to the table, but more of them. Discussions in the US about a '1,000 ship Navy' are predicated on precisely this model; "a voluntarily global maritime network that ties together the collective capabilities of free nations to establish and maintain a dramatically increased level of international security in the maritime domain" [@morgan_000shipnavyglobal_2005]. Similarly, the 2002 Prague Summit outlined 8 areas over which NATO states could try to specialize, which 2011 Chicago Summit advocated as "certain countries should let go of certain capabilities in order to create a more rational defence structure from a Brussels perspective" [@christiansson_poolingsharingspecializing_2013, 181-186].[^10] This resulted in Czechia specializing in CBRN defense, Denmark omitting submarines, the Baltic states emphasizing cyber defense at the expense of fighter aircraft, and a handful of states taking the lead on strategic airlift.
+
+[^10]: @auerswald_natoafghanistanfighting_2014 [p. 229-233] also point out specialization can help individual states engage in cost-effective defense investments while maintaining an aggregate full-spectrum allied force, but are skeptical trust issues can be overcome.
+
+*Hypothesis: Specialization of defense capabilities should increase with the presence of militarily-capable defense allies.*
+
+Alliances that vary in their structure and purpose will also vary in the mechanism by which they incentivize specialization [@leeds_interestsinstitutionsreliability_2009; @mattes_reputationsymmetryalliance_2012]. Specialization may be the product of high interest alignment resolving coordination problems or hierarchy reducing the risk of opportunism coercively or contractually [@gannon_usetheirforce_2021]. But theorizing the conditions under which some alliances are more or less likely to induce specialization risks putting the cart before the horse without initial evidence that alliances influence the composition of a state's arms portfolio at all. Linking alliance membership with higher military specialization is a necessary precursor, setting the foundation for differentiating alliances based on the mechanisms by which specialization occurs and which alliance members specialize in what.
+
+In sum, force structures that omit useful defense capabilities and/or overproduce others can occur when a state has opted to specialize its military portfolio. A state is more willing to do so when the security risks of specialization are no longer prohibitive; a condition made possible by alliance relationships that resolve the constrained optimization problem. Shared defense thus garners the security benefits of capability aggregation posited by the neo-realists [@parent_balancingneorealism_2015] as well as the economic benefits put forth by hierarchy theorists [@lake_anarchyimportancesecurity_2001, 147-151].
+
+# Empirical analysis {#sec-empirics}
+
+## Dependent variable
+
+The dependent variable is the degree of specialization of a state's distribution of military capabilities in a given year. A state's distribution of military capabilities is defined here as the combination of military equipment that could be used by a state during conflict. This includes platforms like artillery, aircraft, naval vessels, armored vehicles, satellites, and transport ships.[^11] I choose these scope conditions because military platforms are equipment that can be deployed, that other nations are likely to observe, that could be used to signal intent and resolve in a crisis without actual use, and that are durable goods.[^12] The index is constructed using the rDMC dataset detailing annual counts of `r scales::comma(dplyr::n_distinct(df_long$tek))` different military platforms across all states from 1970-2014 [@gannon_planestrainsarmored_2023].
+
+[^11]: The data do not include munitions like single-use bombs or ammunition or firearms used by individual military personnel. Existing research has made similar distinctions in what military capabilities are examined cross-nationally [@brooks_risefallgreat_2016].
+
+[^12]: While platforms and capabilities are not synonymous, there are here categorized based on their role/mission which serves as a reasonable proxy for capabilities. For example, fighter aircraft differ from bomber aircraft in what they allow a state to do, and those differ yet still from transport or tanker aircraft.
+
+To measure military specialization at the country-year level, I create an index quantifying the differences across states' distribution of military capabilities identified as omissions and over-productions relative to the neorealist baseline assumption that states behave as like-units under anarchy and should consequently seek similarly diverse military capabilities subject to resource constraints.[^13] Assume that global defense in year $t$ is composed of $N$ countries and $M$ military technologies. I construct an $n \times m$ interaction matrix for each year $t$ such that each row $n$ is a country and each column $m$ is a technology. Each cell thus represents the observed count of a given technology in that country-year's military.[^14] In aggregate, this can be represented as $d_j = \sum_{i=1}^{N}(p'_{ij}ln\frac{p'_{ij}}{q_i})$ where $N$ is the total number of countries in that year, $p_{ij}$ is country $i$'s possession of technology $j$ divided by the total amount of technologies $j$, and $q_i$ is the total number of technologies possessed by country $i$ divided by the total number of technologies in the world.[^15]
+
+[^13]: This assumption simply sets 0 as a common reference point for the index. Even if we accept the common wisdom that all states specialize to some degree given optimization towards the most salient threats, the index still provides a way to compare relative degrees of specialization across observations. I choose the neorealist assumption of full-spectrum convergence because even those who believe observing specialization is obvious and intuitive have no clear prior about the *degree* of specialization we should expect to see.
+
+[^14]: I include all branches of state militaries, including paramilitary branches like coast guards, for consistency across observations and because many states use or could use paramilitary forces internationally, even if in a non-military capacity like disaster relief or quasi-military capacity like gray zone conflict [@morris_chinawelcomesits_2018; @gannon_shadowdeterrencewhy_2023].
+
+[^15]: This bipartite network structure is modeled after its use in ecological research [@alarcon_yeartoyearvariationtopology_2008].
+
+From this, I calculate the functional entropy of each country's military using a trait-based similarity measure drawn from Rao's [-@rao_diversitydissimilaritycoefficients_1982] quadratic entropy calculation of the average difference across technology portfolios between each country and all other countries in a given year weighting the technologies by their relative abundance. This calculates the functional entropy of a country's military as: $R(p_i,D) = \sum_{k=1}^{S} \sum_{l=1}^{S} \sqrt{(p_k|i)} \sqrt{(p_k|j)} d_{kl}$ where $p_i=(p_1|i, …, p_k|i, …, p_S|i)$ is the vector of relative technology abundance within country $i$; $S$ is the number of technologies; $D=(d_kl)$ is the matrix of functional dissimilarity between the technologies, and $d_kl$ is the functional dissimilarity between countries $k$ and $l$ [@pavoine_adivpackageanalyse_2020].[^16]
+
+[^16]: As this measure of functional entropy is developed by @pavoine_phylogeneticfunctionaloriginality_2017, its formula is provided verbatim. In the original statistical ecology application, this measure uses @hill_diversityevennessunifying_1973 numbers to measure the dissimilarity between biological species based on observed traits, accounting for the rarity of those traits.
+
+To provide some intuition, this measure of entropy calculates the degree of surprise or unpredictability produced by the difference between the amount of a military capability we expect a country to possess and what that country actually possess. This prior expectation is based on the distribution of technologies across all other states and within the state in question, thus providing a relative and absolute measure. For example, if most states possess, on average, twice as many transport helicopters as they do transport aircraft, we would expect a state with 10 transport aircraft to have roughly 20 transport helicopters. But if the state in question already possessed many more transport aircraft than everyone else, we would update our expectation since we know a way this quantity differs from other states and other capabilities. Our expectation for transport helicopters can thus be *re*-calibrated based on (1) the number of transport aircraft this states possesses relative to everyone else's transport aircraft, and (2) the number of transport aircraft this state possesses relative its other capabilities. If we now reproduce this method across all other capabilities, we get a revised prior expectation for the capability in question - transport helicopters. The closer the observed quantity is to our final re-calibrated expectation, the less entropy the quantity produces, and thus the lower the level of specialization since producing many more or far fewer transport helicopters than the model expects are both indications that the state has absolute and relative specialization by omitting or over-producing that capability relative to intra-state and interstate expectation.
+
+@fig-spec_scores shows the distribution of this index across all observations.[^17] Among the most specialized observations are Japan after 2010 and the least specialized include the Baltic states in the early 1990's. Given the number of destroyers and offshore coastal ships Japan possesses, having almost no amphibious ships is an unexpected form of naval specialization (in the entropic sense). So while Japan may dominate in many military capabilities, that does not mean its relative dominance is equal across the board. Even the United States has specialized, with famously risky and consequential under-productions including the lack of minesweepers during the 1984 Iran-Iraq Tanker War [@devore_convenientframeworkwestern_2009], nuclear, chemical, and biological (NBC) reconnaissance vehicles at the start of the 2003 Iraq War [@geis_burdensshadowsfuture_2013, 241-255], and icebreakers over the past two decades [@markowitz_perilsplentyarctic_2020, 77-78]. Importantly, having a diversified military is not synonymous with having a lot of everything. States can have very little of everything, making them similarly *in*capable across the board.[^18]
+
+[^17]: There is a small, statistically significant, positive temporal trend in specialization that is accounted for in the statistical model. Technology evolves dynamically, in this case maybe due to shifts away from high-quantity legacy systems towards high-quality expeditionary warfare systems [@terriff_transformationgapamerican_2010; @schnaubelt_natonewstrategic_2011].
+
+[^18]: Almost all states possess certain capabilities like light transport aircraft and search and rescue helicopters. This is consistent with accounts of basic infrastructure ensured by "critical assets" [@matlary_denationalisationdefenceconvergence_2007] and identifies the importance of accounting for economic capacity to ensure the specialization index is not simply measuring the luxury of economic choice.
+
+```{r}
+#| label: fig-spec_scores
+#| fig-cap: "Distribution of country-year military specialization. The measure is bounded between 0 and 1, with 1 representing the highest theoretically possible level of specialization."
+#| fig-pos: 'h'
+
+df_full %>%
+  ggplot(aes(x = spec_fentrop)) +
+  geom_histogram(bins = 30, color = "black", fill = "gray") +
+  geom_vline(aes(xintercept = mean(spec_fentrop, na.rm = TRUE)), 
+             linetype = "dashed", linewidth = 0.6) +
+  annotate("text",
+           x = mean(df_full$spec_fentrop, na.rm = TRUE) + 0.035,
+           y = 625,
+           label = paste("Mean =", round(mean(df_full$spec_fentrop, na.rm = TRUE), 3))) +
+  scale_x_continuous(breaks = scales::pretty_breaks()) +
+  labs(title = "Specialization of Distribution of Military Capabilities (DMC)",
+       x = "Specialization",
+       y = "Number of country-years") +
+  theme_classic() +
+  theme(text = element_text(size = 10))
+```
+
+## Independent variable and controls
+
+The independent variable measures a state's alliance relationships.[^19] A state's allies are those with whom it has a defensive alliance pact whereby the partner state has made a promise to defend the state in question. As most states have at least one formal treaty ally in a given year, existing research using alliances as an independent variable has proxied for the importance of a state's allies to that state's security. I operationalize alliances at the country level two different ways; (1) as the logged sum of military spending of a state's allies (excluding itself) [@digiuseppe_armsdemocraticallies_2016] and (2) the ratio between a state's CINC score and the sum of their alliance CINC scores (including itself) [@fang_concederesistrestraining_2014; @johnson_capabilitycredibilityextended_2015]. For both variables, higher values indicate more militarily-capable alliance relationships which serves as an observable indicator of conditions conducive to military specialization. Because a formal defense commitment suggests a mutual belief in a partner's willingness and ability to provide defense, a state with more militarily-capable allies should be more confident that specializing its military will not leave it vulnerable [@smith_allianceformationwar_1995; @benson_assessingvariationformal_2016].
+
+[^19]: Data on state participation in defensive alliance pacts is provided by the Alliance Treaty and Provisions (ATOP) dataset, version 5 [@leeds_alliancetreatyobligations_2002].
+
+I include a set of control variables that existing theories indicate could be causally related to the dependent and/or independent variables of interest. The models control for regime type, coding a country as a democracy if they score higher than 6 on the 21-point Polity V index. Democracies may spend less on defense [@fordham_kantianliberalismregime_2005], build more capital-intensive militaries [@gartzke_democracypreparationwar_2001], and be more [@digiuseppe_armsdemocraticallies_2016] or less [@gartzke_whydemocraciesmay_2004] reliable partners. There is also a control for whether a country has been involved in an interstate war in the previous half decade, as a salient threat environment [@ghosn_mid3dataset_2004] or recent conflict experience may change patterns of innovation [@kollars_warhorizonsoldierled_2015]. The models control for GDP, as resource-constrained states may be unable to invest in a diverse array of military capital [@diehl_substitutescomplementseffects_1994] or may shift defense funds from platforms to personnel due to unemployment [@becker_rustygunsbuttery_2021].[^20] Finally, I control for CINC scores, as states harboring global ambitions may invest more in power projection capabilities [@markowitz_powerproximitydemocracy_2018].[^21]
+
+[^20]: "Tech-flation" could explain why higher security costs cause militaries to adopt fewer, but higher performing platforms [@adelman_defenserevolutionstrategy_1990], although the empirical record in Europea suggests states diversify their military portfolios despite the financial cost of doing so [@howorth_securitydefencepolicy_2007].
+
+[^21]: In addition to having unclear expectations about their relationship to specialization, time-invariant geographic variables are addressed via fixed effects models in the appendix rather than constant model parameters that risk model degeneration [@beck_fixedeffectstimeinvariantvariables_2011].
+
+## Model and results
+
+The dependent variable is military specialization of country $i$ in year $j$, measured with the functional entropy index described above. Higher values indicate more specialization and less diversification. As the dependent variable is continuous, I estimate a series of ordinary least square (OLS) regressions using the two different independent variables - (1) logged sum of allied military spending, (2) ratio of a country's CINC score to that of all its allies and itself. For each independent variable, I estimate a bivariate model country-clustered standard errors to account for the non-independence between observations in panel data [@cameron_practitionerguideclusterrobust_2015] then a model that adds all control variables and year scaled cubic polynomials to account for temporal specialization trends [@carter_backfuturemodeling_2010]. Summary statistics for all model variables is provided in Appendix Table A1.
+
+I present the OLS results here as they are most easily interpretable and consistent with modeling specifications in existing research with similar data. @tbl-results shows the results of all four models. Models 1 and 2 demonstrate allied military spending is positively associated with military specialization with statistical significance of at least the 0.05 standardized level. Although allies' CINC ratio is negative associated with military specialization in the bivariate model (Model 3), the inclusion of control variables and temporal dependencies (Model 4) reverses the association by minimizing omitted variable bias, which is consistent with the other models and theoretical expectations. In aggregate, these results provides suggestive evidence that states that have militarily-capable alliance partners have more specialized military portfolios - omitting certain capabilities and over-producing other capabilities - relative to states that are reliant upon self-defense.
+
+Recognizing the non-random assignment of alliance membership as well as a plausible endogeneous process whereby specialization makes alliance membership more likely, we urge the reader to interpret these results as consistent with theoretical expectations, rather than evidence of causality. To minimize some of these concerns where possible, a series of alternate model specifications are provided in the appendix that relax assumptions about the underlying distribution of the dependent variable and temporal and country-specific trends. The findings are robust across alternate modeling parameters. Similar results are found using fractional logit and beta regressions (Appendix Table A2), Bayesian zero-inflated and ordered beta regressions (Appendix Table A3), with alternate fixed effects and standard error clustering specifications (Appendix Table A4), and using different controls like operationalizing manufacturing base strength with GDP per capita instead of GDP (Appendix Table A5). Nonetheless, quantitative models of observational panel data are limited in their ability to address these concerns, so further research should validate this claim qualitatively by, for example, process tracing specialization in states before and after joining an alliance like recent waves of NATO expansion.
+
+```{r}
+#| label: tbl-results
+#| tbl-cap: "Military Specialization and Alliances, Multivariate Analysis"
+#| fig.position: 'H!'
+
+# EV 1
+## Select vars
+df_m1 <- df_full %>%
+  dplyr::select(spec_fentrop,
+                milex_allies,
+                democracy,
+                interstatewar_5yrlag_binary,
+                lngdp_WDI_full,
+                cinc_MC,
+                year_base,
+                year_sq,
+                year_cube)
+
+## Bivariate
+m1_bi <- lm(spec_fentrop ~ milex_allies,
+         data = df_m1)
+m1_bicse <- lmtest::coeftest(m1_bi, 
+                              vcov = sandwich::vcovCL(m1_bi,
+                                                      factor(df_full$country)))
+
+## Multivariate
+m1_spline <- lm(spec_fentrop ~ .,
+                data = df_m1)
+m1_splinecse <- lmtest::coeftest(m1_spline,
+                                 vcov = sandwich::vcovCL(m1_spline, factor(df_full$country)))
+
+# EV 2
+## Select vars
+df_m2 <- df_full %>%
+  dplyr::select(spec_fentrop,
+                cinc_allies_ratio,
+                democracy,
+                interstatewar_5yrlag_binary,
+                lngdp_WDI_full,
+                cinc_MC,
+                year_base,
+                year_sq,
+                year_cube)
+
+## Bivariate
+m2_bi <- lm(spec_fentrop ~ cinc_allies_ratio,
+            data = df_m2)
+m2_bicse <- lmtest::coeftest(m2_bi, 
+                              vcov = sandwich::vcovCL(m2_bi,
+                                                      factor(df_full$country)))
+
+## Multivariate
+m2_spline <- lm(spec_fentrop ~ .,
+                data = df_m2)
+m2_splinecse <- lmtest::coeftest(m2_spline,
+                                 vcov = sandwich::vcovCL(m2_spline, factor(df_full$country)))
+
+# Table
+## https://posit.co/blog/new-features-upgrades-in-gt-0-8-0/
+models <- list(m1_bicse, m1_splinecse,
+               m2_bicse, m2_splinecse)
+
+coefs <- c("milex_allies" = "Allies' Mil Spend. (log)",
+           "cinc_allies_ratio" = "Allies' CINC Ratio",
+           "democracy1" = "Democracy",
+           "interstatewar_5yrlag_binary1" = "Interstate War (5yr lag)",
+           "lngdp_WDI_full" = "GDP (log)",
+           "cinc_MC" = "CINC",
+           "coastline" = "Coastline (log)",
+           "land_boundary_length_log" = "Land border (log)",
+           "year_base" = "Year",
+           "year_sq" = "Year$^2$",
+           "year_cube" = "Year$^3$")
+
+modelsummary::modelsummary(models,
+                           statistic = 'p.value',
+                           stars = TRUE,
+                           coef_map = coefs,
+                           escape = FALSE) %>%
+  kableExtra::add_footnote(label = "All models include country-clustered standard errors.")
+```
+
+```{r subst-fx}
+subst <- marginaleffects::comparisons(m2_spline,
+                                      variables = list(cinc_allies_ratio = "sd")) %>%
+  summary() %>%
+  dplyr::pull(estimate) / max(df_m1$spec_fentrop, na.rm = TRUE) * 100
+```
+
+The relationship between alliances and military specialization is also substantively significant. Holding all control variables constant, a one standard deviation increase in allies' CINC ratio (independent variable in Models 3 and 4) is associated with a `r round(subst, 1)`% increase in a state's military specialization; the difference in Japan's military specialization between 1982 and 2000. Despite what what is traditionally understood as a lopsided division of security responsibilities, the US and Japan have each specialized their security responsibilities intentionally [@ando_empiricalanalysisdefense_2015]. Japan's 1982 capability realignment described in @sec-intro signaled the start of a new era of cooperation with the United States, with the joint communique issued by Prime Minister Suzuki and President Reagan [-@usdepartmentofstate_visitjapaneseprime_1981, 3] stressing "the desirability of an appropriate division of roles between Japan and the United States". Japan was entrusted with protecting its sea lines of communication (SLOCs) 1,000 nautical miles off its coast and providing logistical support to offensive US operations as needed. @fig-japan illustrates how one result of this strengthened alliance was a more specialized Japanese military. Japan doubled its SAM and far-from-shore naval capabilities like destroyers and utility helicopters and significantly downsized its amphibious and coastal fleets. The alliance relationship with the United States allowed Japan to carry the "defensive shield" by specializing in capabilities for SLOCs and rear-area support while forgoing "offensive spear" attack-capable surface ships and high-tech long-range aircraft [@schoff_howupgradejapan_2014].[^22]
+
+[^22]: This case illustrates an important avenue for future research - the degree to which specialization at the dyad or alliance-level is complementary. An allies' defense portfolio can compensate for a given state's specialization by possessing the capabilities the given state is missing or by possessing a diversified full-spectrum force. The former suggests the reliance is unidirectional, while the latter suggests a degree of mutual interdependence.
+
+```{r}
+#| label: fig-japan
+#| fig-cap: "Change in Japan's distribution of military capabilities between 1982 and 2000. Capabilities Japan did not possess at any point during this time period (eg ballistic missiles and drones) are omitted."
+#| fig-height: 8
+#| fig-width: 6
+#| fig-pos: H
+
+df_long %>%
+  tidyr::separate(tek,
+                  into = c("parent", "child"),
+                  sep = "_",
+                  remove = FALSE) %>%
+  dplyr::group_by(year, tek) %>%
+  dplyr::mutate(percentile = round(dplyr::percent_rank(unit_count), 2)) %>%
+  dplyr::ungroup() %>%
+  dplyr::filter(country == "japan" &
+                  year %in% c(1982, 2000)) %>%
+  dplyr::mutate(parent = dplyr::recode(parent,
+                                       'principal surface combatants' = 'surface ships',
+                                       'patrol and coastal combatants' = 'coastal ships',
+                                       'anti-tank/anti-infrastructure' = 'anti-tank',
+                                       'armoured fighting vehicles' = 'combat vehicle',
+                                       'unmanned aerial vehicles' = 'uav'),
+                child = dplyr::recode(child,
+                                      'maritime patrol' = 'maritime',
+                                      'mine countermeasures' = 'minesweepers',
+                                      'paramilitary' = 'paramil.',
+                                      'recon-surveil' = 'recon',
+                                      'surveillance and intelligence' = 'surveillance',
+                                      'surface to air missiles' = 'sam',
+                                      'search and rescue' = 'sar',
+                                      'surface to surface missiles' = 'missiles',
+                                      'surface to surface artillery' = 'artillery')) %>%
+  dplyr::mutate(parent = stringr::str_to_title(parent),
+                child = stringr::str_to_title(child),
+                child = dplyr::recode(child,
+                                      'Aew' = 'AEW',
+                                      'Ew' = 'EW',
+                                      'Sam' = 'SAM',
+                                      'Sar' = 'SAR')) %>%
+  dplyr::filter(!parent %in% c("Ballistic Missiles",
+                               "Land/Sea Defence",
+                               "Logistics And Support",
+                               "Radars",
+                               "Uav")) %>%
+  dplyr::filter(!tek %in% c("air defence_surface to air artillery",
+                            "air defence_air to air missiles",
+                            "aircraft_ew",
+                            "aircraft_attack",
+                            "aircraft_aew",
+                            "aircraft_bomber",
+                            "aircraft_maritime patrol",
+                            "aircraft_paramilitary",
+                            "aircraft_recon-surveil",
+                            "amphibious_other",
+                            "anti-tank/anti-infrastructure_missiles",
+                            "armoured fighting vehicles_engineering and maintenance",
+                            "helicopters_ew",
+                            "helicopters_maritime",
+                            "helicopters_observation",
+                            "land/sea defence_air to surface ordnance",
+                            "mine warfare_mine layers",
+                            "patrol and coastal combatants_other",
+                            "patrol and coastal combatants_coastal",
+                            "submarines_other",
+                            "submarines_coastal")) %>%
+  dplyr::arrange(tek, year) %>%
+  dplyr::mutate(paired = rep(1:(dplyr::n()/2), each = 2),
+                year = factor(year)) %>%
+  dplyr::group_by(paired) %>%
+  dplyr::mutate(diffval = unit_count - dplyr::lag(unit_count), default = dplyr::first(unit_count)) %>%
+  ggplot(aes(x = unit_count,
+             y = child)) +
+  geom_path(aes(group = paired),
+            data = ~subset(., diffval > 0 |
+                             diffval < 0 |
+                             is.na(diffval)),
+            arrow = arrow(angle = 20,
+                          length = unit(0.1, "in"),
+                          type = "open")) +
+  geom_point(aes(color = year), size = 3) +
+  facet_wrap(~ parent,
+             ncol = 2,
+             scales = "free") +
+  scale_x_continuous(breaks = scales::pretty_breaks(),
+                     labels = scales::label_number(big.mark = ",")) +
+  theme_bw() +
+  theme(text = element_text(size = 11),
+        plot.title = element_markdown(),
+        legend.position = "none",
+        legend.title = element_blank(),
+        axis.title.y = element_blank()) +
+  scale_color_brewer(palette = "Paired") +
+  labs(title = "Japan's Distribution of Military Capabilities in <span style = 'color: #A6CEE3;'><b>1982</b></span> and <span style = 'color: #1F78B4;'><b>2000</b></span>",
+       x = "Count")
+```
+
+# Implications and avenues for future research {#sec-conclusion}
+
+Variation in the composition of militaries across time and space is the result of political decisions by states to spend defense dollars dissimilarly [@kunertova_onemeasurecannot_2017; @becker_disaggregateddefensespending_2022]. This paper's two central contributions concern identifying and explaining that, first in precisely measuring one important dimension on which military portfolios vary - their degree of specialization - and second in putting forth one novel explanation for that variation - alliances.
+
+By advancing discussion from burden-sharing *costs* to burden-sharing *configurations*, new perspectives on the value of alliances emerge. Contra neorealist pessimism about cooperation under anarchy, relying on other states for your security is neither infrequent nor inefficient. Specialization is evidence that relying on partners for defense happens frequently since alliance participants more often accept the risks of forgoing a diversified force and instead specialize in capabilities seemingly ill-suited to their immediate security but compatible with collective security. Doing so requires trust that alliances allow them to gain the benefits of specialization and diversification in ways they could not if providing for their security alone.
+
+Specialization also questions the inefficiency of external balancing, as it explains a mechanism by which alliances provide "greater security with fewer resources but more coordination" [@rasmussen_buildingsecurityage_2011] in a way that questions pessimistic accounts in ongoing debates about the economic consequences of alliances [@digiuseppe_armsdemocraticallies_2016; @alley_budgetbreakerfinancial_2021; @cooley_estimatingalliancecosts_2022] and burden-sharing [@oneal_theorycollectiveaction_1994; @blankenship_priceprotectionexplaining_2021; @becker_transatlanticshakedownpresidential_2023]. Then US ambassador to NATO Ivo @daalder_renewedambitionsnato_2013 noted that the problem was not that NATO countries were not spending enough on defense, it was that they were not spending that money wisely. In contextualizing the economic implications of specialization and diversification to the defense portfolio context, this paper provides a way to alleviate concerns that alliances are nothing more than wasteful spending. Allies can turn to specialization to ensure that spending is efficient while still being efficacious. As UK Secretary of Defence @hammond_natocasecollective_2012 explained, the answer to economic pressure lies in "prioritizing ruthlessly, specializing aggressively, and collaborating unsentimentally."
+
+Far from just being a political economy story, this finding also has important implications for national security. Efficiencies gained across partners can mean more collective security per dollar. Rather than redundancy across contributors, cooperating states can excel at their particular cog in a collective security machine. Cooperation allows states to "take advantage of economies of scale in the provision of defense and to benefit from specialization by coordinating training, equipment, and procedures. By pooling their efforts and/or cooperating with states that have different comparative advantages, leaders hope to create a stronger joint fighting force" [@leeds_allianceinstitutionalizationalliance_2005, 185]. But specializing one's military because of reliance on others is not without its risks, as there is always a "fear that the other will not live up to the terms of the agreement" [@lake_anarchyhierarchyvariety_1996, 15]. Japan and South Korea's defense strategies have remained neither static nor similar. Contemporary discussions about militarization in response to Chinese, North Korean, and Russian threat have put their respective alliances with the US front and center [@katz_americaneedsreassure_2023]. To the degree that Japan has specialized their military in forgoing and/or overemphasized certain capabilities because of their relationship with the United States, their ability to defend themselves in the event of attack may be compromised [@matsuda_japanemergingsecurity_2023]. South Korea may be trending in the opposite direction, signaling their discontent with the alliance by publicly contemplating the need to duplicate uncertain US nuclear protection with an arsenal of their own [@lind_southkoreanuclear_2023]. More generally, if states feel confident they can rely on their allies, we should see them continue to specialize their militaries. Conversely, allies beginning to diversifying their military portfolios may be hedging their bets in seeking to defend themselves with a full-spectrum force rather than risk the consequences of abandonment.
+
+Future inquiries should explore several critical avenues. Defense cooperation takes many governance forms that allow states to rely on each other to different degrees and for different reasons [@benson_constructinginternationalsecurity_2012], particularly if research extended to other time periods less dominated by asymmetric and institutionalized alliances than the post-1970 period analyzed here [@palmer_securityautonomydefense_1994]. Differences across alliances in joint war planning [@poast_arguingalliancesart_2019, 174-175], the threat environment [@niou_externalthreatinternal_2019], and degree of domination [@lanoszka_consentcoercionusing_2013] may influence who specializes in what and the degree to which specialization by partners produces a coordinated and complementary division of labor [@takabatake_natoapproachmultidomain_2023]. Future work could also look at the size of alliances [@fordham_allalliancesare_2016], specialization across issue areas like diplomacy or economics [@kinne_gunsmoneydefense_2020], or different kinds of security alignments like defense cooperation agreements (DCAs) [@kinne_defensecooperationagreement_2020] and ad-hoc coalitions [@kreps_coalitionsconvenienceunited_2011; @cappellazielinski_supplyingalliespolitical_2021].
+
+Despite fear of exploitation being most salient where survival is at stake, specialization is evidence states can manage uncertainty about cooperation under anarchy by increasing its expected benefits. Even if states do design their militaries primarily to deal with external threats, this is conditioned by their alliance relationships in a way that demonstrates novelty in the value of the latter. This does not negate the conventional wisdom that militaries are primarily structured to counter foreign threats, but it does question a common belief that internal balancing and imitation - even in the face of a common enemy - is the best form of defense in the self-help world of anarchy. One of the very purposes of alliances is to change states' defense spending and their military portfolio. Rather than think about arms and allies are distinct strategies for security - one of which may be better than the other - we should recognize that the arms a state develops are a function of the arms of its allies.
+
+\newpage
+
+# References
