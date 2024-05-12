@@ -1,26 +1,21 @@
 
-# AlliesArmaments
+# Allies as Armaments: Explaining the Specialization of State Military Capabilities
 
-<!-- badges: start -->
-<!-- badges: end -->
+[Gannon, J Andrés](https://jandresgannon.com/). Allies as Armaments: Explaining the Specialization of State Military Capabilities.” _Security Studies_, (Forthcoming).
 
-The goal of AlliesArmaments is to ...
+## The Paper:
 
-## Installation
+[Pre-print](https://github.com/jandresgannon/AlliesArmaments/blob/main/paper/Gannon_Specialization-preprint.pdf).
 
-You can install the development version of AlliesArmaments from [GitHub](https://github.com/) with:
+[Appendix](https://github.com/jandresgannon/AlliesArmaments/blob/main/paper/Gannon_Appendix.pdf).
 
-``` r
-# install.packages("devtools")
-devtools::install_github("jandresgannon/AlliesArmaments")
-```
+## The Authors:
 
-## Example
+## Replication Code and Analysis
+All coding scripts needed for replication and analysis are located in the /docs folder and are described below. Code used to produce all tables, figures, and numbers in the final manuscript are inline in the /paper folder
 
-This is a basic example which shows you how to solve a common problem:
+[01 DV](https://github.com/jandresgannon/AlliesArmaments/blob/main/docs/01_dv-specialization.qmd) - creates the specialization index used for the dependent variable from the rDMC dataset
 
-``` r
-library(AlliesArmaments)
-## basic example code
-```
+[02 EV](https://github.com/jandresgannon/AlliesArmaments/blob/main/docs/02_ev-countryyear.qmd) - creates a dataframe of the explanatory variables and controls
 
+[03 Full dataframe](https://github.com/jandresgannon/AlliesArmaments/blob/main/docs/03_full-df.qmd) - merges the two dataframes together
