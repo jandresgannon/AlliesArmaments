@@ -1,15 +1,11 @@
 
-# Allies as Armaments: Explaining the Specialization of State Military Capabilities
-
 [Gannon, J Andrés](https://jandresgannon.com/). Allies as Armaments: Explaining the Specialization of State Military Capabilities.” _Security Studies_, (Forthcoming).
 
 ## The Paper:
 
-[Pre-print](https://github.com/jandresgannon/AlliesArmaments/blob/main/paper/Gannon_Specialization-preprint.pdf).
+[Pre-print](https://github.com/jandresgannon/AlliesArmaments/blob/main/paper/Gannon_Specialization-preprint.pdf)
 
-[Appendix](https://github.com/jandresgannon/AlliesArmaments/blob/main/paper/Gannon_Appendix.pdf).
-
-## The Authors:
+[Appendix](https://github.com/jandresgannon/AlliesArmaments/blob/main/paper/Gannon_Appendix.pdf)
 
 ## Replication Code and Analysis
 All coding scripts needed for replication and analysis are located in the /docs folder and are described below. Code used to produce all tables, figures, and numbers in the final manuscript are inline in the /paper folder
