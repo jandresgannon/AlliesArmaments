@@ -2,9 +2,9 @@
 title: '01 Dependent Variable - Specialization'
 author:
   - name: J Andrés Gannon
-    email: "andres.gannon@gmail.com"
+    email: "juan.gannon@vanderbilt.edu"
     url: jandresgannon.com
-    affiliation: Council on Foreign Relations
+    affiliation: Vanderbilt University
 format:
   pdf:
     fig-format: png
@@ -48,6 +48,7 @@ library(ggplot2)
 ```{r load data}
 rdmc_long <- readRDS(file = paste0(here::here(), '/data/rDMC_long_v1.rds')) %>%
   dplyr::filter(year <= 2014)
+
 df <- readRDS(file = paste0(here::here(), '/data/rDMC_wide_v1.rds')) %>%
   dplyr::filter(year <= 2014)
 
@@ -65,9 +66,139 @@ df_country <- unique(df$country)
 
 \newpage
 
-# Specialization indices
+# Specialization index
 
-There are many different ways to measure specialization from economic and biology models. I look into specialization indexes composed by the following packages.
+There are many different ways to measure specialization from economic and biology models. I look into specialization indexes composed by the various packages in the following headers. For transparency, I retain the code for specialization indices that are not used in the paper or its models, but are potentially of interest to other scholars for other applications or comparisons to the main results. They are listed below under Archive.
+
+## adiv functional entropy
+
+Calculates functional entropy within a country. It is calculated as:
+
+$R(p_i,D)=sum_k,l sqrt(p_k|i) sqrt(p_k|j) d_kl$
+
+where $p_i=(p_1|i, …, p_k|i, …, p_S|i)$ is the vector of relative species abundance within community $i$; $S$ is the number of species; $D=(d_kl)$ is the matrix of (phylogenetic or functional) dissimilarities among species, and $d_kl$ is the (phylogenetic or functional) dissimilarity between species $k$ and $l$.
+
+```{r}
+# Non-scaled version
+
+# initial empty list
+my_list <- list()
+
+# define function
+func <- function(df_year){
+
+  test <- df %>% 
+    dplyr::filter(year == df_year) %>%
+    replace(is.na(.), 0)
+
+  names <- c('country', 'year')
+
+  test$obs <- apply(test[ , names], 1, paste, collapse = "_")
+
+  test <- test[ , !(names (test) %in% names)]
+
+  test <- test %>% tibble::column_to_rownames(var = "obs")
+
+  scores <- test %>%
+    dplyr::filter_all(dplyr::any_vars(. != 0)) %>%
+    adiv::Rentropy(scale = FALSE) %>% 
+    tibble::rownames_to_column() %>%
+    dplyr::rename(spec_raw = diversity)
+
+  # save each year as a dataframe in a list
+  my_list[paste("scores", df_year)] <<- list(scores) 
+}
+
+# loop through all years
+for(i in df_year){
+  func(df_year = i)
+}
+
+# bind nested datasets into a complete dataframe
+spec_raw <- do.call(rbind.data.frame, my_list) %>%
+  as.data.frame()
+```
+
+```{r}
+# Scaled version
+
+# initial empty list
+my_list <- list()
+
+# define function
+func <- function(df_year){
+
+  test <- df %>% 
+    dplyr::filter(year == df_year) %>%
+    replace(is.na(.), 0)
+
+  names <- c('country', 'year')
+
+  test$obs <- apply(test[ , names], 1, paste, collapse = "_")
+
+  test <- test[ , !(names (test) %in% names)]
+
+  test <- test %>% tibble::column_to_rownames(var = "obs")
+
+  scores <- test %>%
+    dplyr::filter_all(dplyr::any_vars(. != 0)) %>%
+    adiv::Rentropy(scale = TRUE) %>% 
+    tibble::rownames_to_column() %>%
+    dplyr::rename(spec_intscale = diversity)
+
+  # save each year as a dataframe in a list
+  my_list[paste("scores", df_year)] <<- list(scores) 
+}
+
+# loop through all years
+for(i in df_year){
+  func(df_year = i)
+}
+
+# bind nested datasets into a complete dataframe
+spec_scaled <- do.call(rbind.data.frame, my_list) %>%
+  as.data.frame()
+```
+
+```{r}
+# Combined and rename as the method used
+scores_df <- dplyr::left_join(spec_raw, spec_scaled) %>%
+  janitor::clean_names() %>%
+  tidyr::separate(rowname, into = c("country", "year"), sep = "_") %>%
+  dplyr::mutate(year = as.numeric(year)) %>%
+  dplyr::left_join(., id_vars)
+```
+
+## Normalize and scale
+
+```{r}
+#| eval: false
+
+# Create object that finds the best normalization model
+bn_fentrop <- bestNormalize::bestNormalize(scores_df$spec_raw)
+scores_df$spec_norm <- predict(bn_fentrop, scores_df$spec_raw)
+```
+
+```{r}
+# Scale original DV
+scores_df <- scores_df %>%
+  dplyr::mutate(spec_extscale = scales::rescale(spec_raw),
+                spec_stand = arm::rescale(spec_raw))
+```
+
+# Save
+
+Save final output. A dataframe with country-year observations and specialization score indices as columns.
+
+```{r}
+scores_df <- scores_df %>%
+  dplyr::select(year, country, stateabb, ccode, 
+                dplyr::starts_with("spec_"))
+
+saveRDS(scores_df, paste0(here::here(), "/data/","01_DV-specialization.rds"))
+```
+
+# Archive
 
 ## bipartite
 
@@ -82,6 +213,8 @@ proportional similarity - dissimilarity between resource use and availability, s
 proportional generality - high values mean a balance diet, accounting for the abundance of resources
 
 ```{r}
+#| eval: false
+
 # initial empty list
 my_list <- list()
 
@@ -122,63 +255,17 @@ dprime <- as.data.frame(d_by_year) %>%
                 spec_d = d)
 ```
 
-## adiv functional entropy
-
-Calculates functional entropy within a country. It is calculated as:
-
-$R(p_i,D)=sum_k,l sqrt(p_k|i) sqrt(p_k|j) d_kl$
-
-where $p_i=(p_1|i, …, p_k|i, …, p_S|i)$ is the vector of relative species abundance within community $i$; $S$ is the number of species; $D=(d_kl)$ is the matrix of (phylogenetic or functional) dissimilarities among species, and $d_kl$ is the (phylogenetic or functional) dissimilarity between species $k$ and $l$.
-
-```{r}
-# initial empty list
-my_list <- list()
-
-# define function
-func <- function(df_year){
-
-  test <- df %>% 
-    dplyr::filter(year == df_year) %>%
-    replace(is.na(.), 0)
-
-  names <- c('country', 'year')
-
-  test$obs <- apply(test[ , names], 1, paste, collapse = "_")
-
-  test <- test[ , !(names (test) %in% names)]
-
-  test <- test %>% tibble::column_to_rownames(var = "obs")
-
-  scores <- test %>%
-    dplyr::filter_all(dplyr::any_vars(. != 0)) %>%
-    adiv::Rentropy(scale = TRUE) %>% 
-    tibble::rownames_to_column() %>%
-    dplyr::rename(fentrop = diversity)
-
-  # save each year as a dataframe in a list
-  my_list[paste("scores", df_year)] <<- list(scores) 
-}
-
-# loop through all years
-for(i in df_year){
-  func(df_year = i)
-}
-
-# bind nested datasets into a complete dataframe
-d_by_year <- do.call(rbind.data.frame, my_list)
-
-# Rename as the method used
-fentrop <- as.data.frame(d_by_year) %>%
-  dplyr::rename(spec_fentrop = fentrop)
-```
-
 ## PSI
 
 Compares an individual country's military capability distribution to the world as a whole to create a proportional similarity index (PS) using Monte Carlo resampling (1000 simulations). It calculates the overlap between a country and the world for each capability that is the frequency of that capability in your military and the frequency of that capability in the world as a whole and a country score is then the average of the PS values for each capability
 
 The PSi score returned is the individual's proportional similarity index.
 
+Note that the following code takes a long time to run
+
 ```{r}
+#| eval: false
+
 # initial empty list
 my_list <- list()
 
@@ -225,9 +312,13 @@ psi <- as.data.frame(d_by_year) %>%
 
 ## Dispersion
 
-As a new measure made by hand, from each technology-year we can calculate the country-year-capability standard deviations (SD). From this, we have all SDs across capabilities for a country-year. The SD of that is a measure is dispersion, with higher values meaning that country overproduced and underproduced more capabilities relative to their normal leve of over- or under- production
+As a new measure made by hand, from each technology-year we can calculate the country-year-capability standard deviations (SD). From this, we have all SDs across capabilities for a country-year. The SD of that is a measure is dispersion, with higher values meaning that country overproduced and underproduced more capabilities relative to their normal leve of over- or under- production.
+
+Note that this is the operationalization of the specialization dependent variable in Chapter 2 of "Use Their Force: Interstate Security Alignments and the Distribution of Military Capabilities" (https://escholarship.org/uc/item/3bv181cz)
 
 ```{r}
+#| eval: false
+
 dispersion <- rdmc_long %>%
   dplyr::select(country, year, tek, unit_count) %>%
   dplyr::group_by(year, tek) %>%
@@ -244,58 +335,13 @@ dispersion <- rdmc_long %>%
   dplyr::rename(spec_dispersion = sd)
 ```
 
-# Prep
+## Sandbox
 
-## Merge
-
-We now have multiple numeric scores for each country-year in terms of their military specialization. We now clean up the data so that can be appropriately processed.
+The following code is largely borked and will not run as shown
 
 ```{r}
-# Merge
-scores_df <- dplyr::left_join(dprime, fentrop) %>%
-  dplyr::left_join(., psi) %>%
-  dplyr::left_join(., dispersion) %>%
-  janitor::clean_names()
+#| eval: false
 
-# Re-create country and year as separate columns
-scores_df <- scores_df %>%
-  tidyr::separate(rowname, into = c("country", "year"), sep = "_") %>%
-  dplyr::mutate(year = as.numeric(year))
-
-# Use that to re-merge ccode and cname
-scores_df <- dplyr::left_join(scores_df, id_vars)
-
-# Fix formatting for title case
-scores_df$country <- stringr::str_to_title(scores_df$country)
-```
-
-## Normalize and scale
-
-```{r}
-# Create object that finds the best normalization model
-bn_fentrop <- bestNormalize::bestNormalize(scores_df$spec_fentrop)
-scores_df$spec_fentrop_norm <- predict(bn_fentrop, scores_df$spec_fentrop)
-
-# Scale original DV
-scores_df <- scores_df %>%
-  dplyr::mutate(spec_fentrop_scaled = scales::rescale(spec_fentrop))
-```
-
-# Save
-
-Save final output. A dataframe with country-year observations and specialization score indices as columns.
-
-```{r}
-scores_df <- scores_df %>%
-  dplyr::select(year, country, stateabb, ccode, 
-                dplyr::starts_with("spec_"))
-
-saveRDS(scores_df, paste0(here::here(), "/data/","01_DV-specialization.rds"))
-```
-
-# Archive
-
-```{r, eval = FALSE}
 # test zone
 scores <- df %>% 
   dplyr::filter(year == 2014) %>%
@@ -325,7 +371,6 @@ rdmc_long %>%
                 mean_share = mean(share, na.rm = TRUE)) %>%
   dplyr::filter(country == "venezuela") %>%
   DT::datatable()
-
 
 # other adiv functions
 ## richness, ginisimpson, simpson, shannon, margalef, menhinick, mcintosh

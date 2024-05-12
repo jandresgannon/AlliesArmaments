@@ -2,9 +2,9 @@
 title: '03 Final Dataframe'
 author:
   - name: J Andrés Gannon
-    email: "andres.gannon@gmail.com"
+    email: "juan.gannon@vanderbilt.edu"
     url: jandresgannon.com
-    affiliation: Council on Foreign Relations
+    affiliation: Vanderbilt University
 format:
   pdf:
     fig-format: png

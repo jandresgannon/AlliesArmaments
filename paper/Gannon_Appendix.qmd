@@ -1,0 +1,674 @@
+---
+title: '\singlespace Supplemental Material for _Allies as Armaments Explaining the Specialization of State Military Capabilities_'
+author:
+  - name: Anonymized
+format:
+  pdf:
+    fig-format: png
+    toc: false
+    number-sections: true
+    fig-pos: H
+editor: visual
+execute:
+  echo: false
+  warning: false
+  cache: true
+date: today
+date-format: long
+header-includes:
+- \usepackage{tikz}
+- \usepackage{pgfplots}
+- \pgfplotsset{compat=newest}
+- \usetikzlibrary{plotmarks}
+- \usetikzlibrary{arrows.meta}
+- \usepgfplotslibrary{patchplots}
+- \usepackage{grffile}
+- \usepackage{caption}
+- \usepackage[utf8]{inputenc}
+- \usepackage[doublespacing]{setspace}
+- \AtBeginEnvironment{tabular}{\singlespacing}
+- \usepackage{float}
+- \usepackage{multirow}
+- \usepackage{tablefootnote}
+- \usepackage{pifont}
+- \usepackage{newunicodechar}
+- \usepackage{booktabs}
+- \usepackage{siunitx}
+- \usepackage{tabularx}
+- \newunicodechar{✓}{\ding{51}}
+- \newcommand{\beginsupplement}{
+    \setcounter{table}{0}  
+    \renewcommand{\thetable}{A\arabic{table}} 
+    \setcounter{figure}{0} 
+    \renewcommand{\thefigure}{A\arabic{figure}}}
+bibliography: ForceStructure.bib
+---
+
+```{r knitr-options, cache = FALSE}
+library(knitr)
+library(kableExtra)
+library(magrittr)
+library(ggplot2)
+library(ggtext)
+```
+
+```{r load data}
+df_raw <- readRDS(paste0(here::here(), '/data/rDMC_raw_v1.rds'))
+
+df_long <- readRDS(paste0(here::here(), '/data/rDMC_long_v1.rds')) |>
+  dplyr::filter(year <= 2014)
+
+df_wide <- readRDS(paste0(here::here(), '/data/rDMC_wide_v1.rds')) |>
+  dplyr::filter(year <= 2014)
+
+df_full <- readRDS(paste0(here::here(), '/data/03_DF-full.rds'))
+```
+
+```{=tex}
+\beginsupplement
+```
+\singlespacing
+
+This appendix accompanies the paper "Allies as Armaments: Explaining the Specialization of State Military Capabilities". It provides supplemental information concerning descriptive statistics of the data used in the model and robustness checks and alternate specifications as described in the results section of the manuscript.
+
+\tableofcontents
+
+\doublespacing
+
+\newpage
+
+# Descriptive statistics
+
+```{r summstats}
+#| label: tbl-summstats
+#| tbl-cap: "Summary statistics for model variables. Year polynomials are omitted for simplicity."
+#| tbl-position: 'H'
+
+df_full |>
+  dplyr::select('Year' = year,
+                'Specialization' = spec_stand,
+                'Ally Mil Spend (log)' = milex_allies,
+                'Ally CINC Ratio' = cinc_allies_ratio,
+                'Democracy' = democracy,
+                'Interstate War (5yr lag)' = interstatewar_5yrlag_binary,
+                'GDP (log)' = lngdp_WDI_full,
+                'CINC' = cinc_MC) |>
+  modelsummary::datasummary_skim(Title = "Summary statistics of model variables",
+                                 histogram = FALSE,
+                                 fmt = 2,
+                                 output = 'markdown') |>
+  kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+```{r}
+#| label: fig-dv
+#| fig-cap: "The distribution is consistent across transformations and since it is a linear transformation, does not change the model results other than the interpretation of the coefficients. The main text uses the scaling from the arm package and the fractional, beta, ZOIB, and ordered beta regressions use the bounded version in adiv."
+#| fig-height: 3
+#| fig-width: 5
+
+df_full |>
+  dplyr::select(id, dplyr::starts_with("spec_")) |>
+  dplyr::rename('Scaled (scales package)' = spec_extscale,
+                'Scaled (adiv package)' = spec_intscale,
+                'Unscaled (adiv package)' = spec_raw,
+                'Scaled (arm package)' = spec_stand) |>
+  tidyr::pivot_longer(2:5,
+                      names_to = "measure",
+                      values_to = "value") |>
+  ggplot(aes(x = value)) +
+  geom_histogram(bins = 30, color = "black", fill = "gray") +
+  scale_x_continuous(breaks = scales::pretty_breaks()) +
+  facet_wrap(~measure, 
+             scales = "free_x",
+             ncol = 2) +
+  labs(title = "Comparison of dependent variable transformations",
+       x = "Specialization",
+       y = "Number of observations") +
+  theme_classic()
+```
+
+\newpage
+
+# Measurement Validation
+
+## Synthetic Observations
+
+```{r}
+# synthetic country specialization
+
+synth <- df_wide |>
+  dplyr::filter(year == 2010) |>
+  dplyr::select(-country, -ccode, -year) |>
+  janitor::remove_empty() |>
+  janitor::remove_constant() |>
+  tibble::column_to_rownames("stateabb")
+
+synth_spec <- synth |>
+  dplyr::mutate_all(~replace(., is.na(.), 0)) |>
+  adiv::Rentropy(scale = FALSE) |>
+  tibble::rownames_to_column() |>
+  dplyr::rename(spec_raw = diversity) |>
+  dplyr::mutate(spec_stand = arm::rescale(spec_raw))
+
+######
+
+# min
+synth_min <- sapply(synth, function(x) min(x[x > 0]))
+synth_min <- rbind(synth, synth_min = synth_min)
+
+synth_spec_min <- synth_min |>
+  dplyr::mutate_all(~replace(., is.na(.), 0)) |>
+  adiv::Rentropy(scale = FALSE) |>
+  tibble::rownames_to_column() |>
+  dplyr::rename(spec_raw = diversity) |>
+  dplyr::mutate(spec_stand = arm::rescale(spec_raw)) |>
+  dplyr::filter(stringr::str_detect(rowname, "synth"))
+
+# median
+synth_median <- sapply(synth, function(x) median(x, na.rm = TRUE))
+synth_median <- rbind(synth, synth_median = synth_median)
+
+synth_spec_median <- synth_median |>
+  dplyr::mutate_all(~replace(., is.na(.), 0)) |>
+  adiv::Rentropy(scale = FALSE) |>
+  tibble::rownames_to_column() |>
+  dplyr::rename(spec_raw = diversity) |>
+  dplyr::mutate(spec_stand = arm::rescale(spec_raw)) |>
+  dplyr::filter(stringr::str_detect(rowname, "synth"))
+
+# US as navy only
+synth_navy <- synth |>
+  tibble::rownames_to_column() |>
+  tibble::add_row(rowname = "synth_navy",
+                  'amphibious_landing craft' = 796,
+                  'amphibious_landing ship' = 76,
+                  'logistics and support_command and support' = 12,
+                  'logistics and support_logistics' = 141,
+                  'logistics and support_maintenance' = 92,
+                  'logistics and support_replenishment' = 27,
+                  'logistics and support_research' = 7,
+                  'logistics and support_special purpose' = 10,
+                  'logistics and support_surveillance and intelligence' = 8,
+                  'logistics and support_transport' = 1,
+                  'mine warfare_mine countermeasures' = 10,
+                  'mine warfare_mine layers' = 6,
+                  'patrol and coastal combatants_coastal' = 133,
+                  'patrol and coastal combatants_corvette' = 2,
+                  'patrol and coastal combatants_offshore' = 43,
+                  'patrol and coastal combatants_other' = 45,
+                  'principal surface combatants_aircraft carrier' = 11,
+                  'principal surface combatants_cruisers' = 22,
+                  'principal surface combatants_destroyers' = 56,
+                  'principal surface combatants_frigates' = 30,
+                  'submarines_attack' = 57,
+                  'submarines_ballistic' = 28,
+                  'submarines_coastal' = 41,
+                  'submarines_other' = 8) |>
+  tibble::column_to_rownames("rowname")
+
+synth_spec_navy <- synth_navy |>
+  dplyr::mutate_all(~replace(., is.na(.), 0)) |>
+  adiv::Rentropy(scale = FALSE) |>
+  tibble::rownames_to_column() |>
+  dplyr::rename(spec_raw = diversity) |>
+  dplyr::mutate(spec_stand = arm::rescale(spec_raw)) |>
+  dplyr::filter(stringr::str_detect(rowname, "synth"))
+```
+
+I create three synthetic observations where we have confident prior beliefs about how the specialization index should measure them. Using the existing data for 2010, I create new synthetic measures for countries with: 1) synthetic minimum - a country that had the smallest quantity for each military capability that at least one country possessed in that year, 2) synthetic median - a country that had the median quantity for each military capability, and 3) a super navy - a country that had the largest navy in the world across all naval platforms but possessed no ground or air assets. We would expect the synthetic minimum country to be diversified, since what matters is not its size but the fact that it is in the same percentile range across the board, we would expect the median country to be close to 0 since it should represent the specialization of a country composed entirely of averages across weapons platforms, and a super navy to be highly specialized. In running the simulation, the measurements for the synthetic observations are consistent with these expectations, suggesting the index is validating cases we would expect to have low, medium, and high values of specialization. The synthetic minimum's index value is `r synth_spec_min |> dplyr::pull(spec_stand) |> round(2)`, the synthetic median's is `r synth_spec_median |> dplyr::pull(spec_stand) |> round(2)`, and the synthetic super navy is `r synth_spec_navy |> dplyr::pull(spec_stand) |> round(2)`. The synthetic super navy is among the most specialized 1% of real world observations, and states with specialization similar to the synthetic super navy are those like Australia which is described in the manuscript.
+
+# Alternate Model Specifications
+
+We run a set of alternate model specifications as robustness checks.[^1] We choose the OLS model specification for the primary results shown in the manuscript given it is appropriate for a continuous and normally distributed dependent variable, the most easily interpretable, and consistent with existing research. Explanations for additional model specifications as well as their results are shown below. These alternate model specifications have been chosen based on existing research using similar dependent variables in both ecology and political science [@chiu_incidencedatabasedspeciesrichness_2022; @kubinec_orderedbetaregression_2022].
+
+[^1]: Much of the modeling done here follows the protocol described by @heiss_guidemodelingproportions_2021. The author is thankful for their open-source code and strongly suggests readers refer to the original material from which much of this code originates.
+
+The dependent variable, military specialization, is an entropy-based measures of deviations from a country's count of each military capability from a baseline determined by the composition of their military as well as that of other countries. In its original calculation, it is bounded between \[0, 1) with 0 representing no specialization (a state's composite military perfectly matches prior expectations) and 1 representing the theoretical entropic maximum. In the observed data (n = `r scales::comma(nrow(df_full))`), there are `r df_full %>% dplyr::filter(spec_intscale == 0) %>% nrow` rows where the dependent variable is 0 and none where the dependent variable is 1.
+
+I avoid modeling with two-way fixed effects given recent research identifying the shortfalls and biases of such modeling [@callaway_differenceindifferencesmultipletime_2021; @goodman-bacon_differenceindifferencesvariationtreatment_2021; @sun_estimatingdynamictreatment_2021; @borusyak_revisitingeventstudy_2022]. The new estimators that resolve these problems cannot be easily applied here because the treatment variable is continuous and there are more than two time periods [@callaway_differenceindifferencescontinuoustreatment_2021].
+
+\newpage
+
+## Un-adjusted standard errors
+
+```{r results-normse}
+#| label: tbl-results-normse
+#| tbl-cap: "Non-country clustered SE"
+#| fig.position: 'H!'
+
+# EV 1
+df_m1 <- df_full %>%
+  dplyr::select(spec_stand,
+                milex_allies,
+                democracy,
+                interstatewar_5yrlag_binary,
+                lngdp_WDI_full,
+                cinc_MC,
+                year_base,
+                year_sq,
+                year_cube)
+
+## Year splines
+m1_spline <- lm(spec_stand ~ .,
+                data = df_m1)
+
+## Year FE
+m1_yfe <- plm::plm(spec_stand ~
+                     milex_allies +
+                     democracy +
+                     interstatewar_5yrlag_binary +
+                     lngdp_WDI_full +
+                     cinc_MC,
+                   data = df_full,
+                   index = "year",
+                   model = "within")
+
+# EV 2
+df_m2 <- df_full %>%
+  dplyr::select(spec_stand,
+                cinc_allies_ratio,
+                democracy,
+                interstatewar_5yrlag_binary,
+                lngdp_WDI_full,
+                cinc_MC,
+                year_base,
+                year_sq,
+                year_cube)
+
+## Year splines
+m2_spline <- lm(spec_stand ~ .,
+                data = df_m2)
+
+## Year FE
+m2_yfe <- plm::plm(spec_stand ~
+                     cinc_allies_ratio +
+                     democracy +
+                     interstatewar_5yrlag_binary +
+                     lngdp_WDI_full +
+                     cinc_MC,
+                   data = df_full,
+                   index = "year",
+                   model = "within")
+
+# Table
+models <- list(m1_spline, m1_yfe,
+               m2_spline, m2_yfe)
+
+coefs <- c("milex_allies" = "Allies' Mil Spend. (log)",
+           "cinc_allies_ratio" = "Allies' CINC Ratio",
+           "democracy1" = "Democracy",
+           "interstatewar_5yrlag_binary1" = "Interstate War (5yr lag)",
+           "lngdp_WDI_full" = "GDP (log)",
+           "cinc_MC" = "CINC")
+
+rows <- tibble::tribble(~term, ~'(1)', ~'(2)', ~'(3)', ~'(4)',
+                        'Time trend', 'Cubic poly', 'Year FE', 'Cubic poly', 'Year FE',
+                        'Robust SE', 'No', 'No', 'No', 'No')
+attr(rows, 'position') <- c(14, 15)
+
+modelsummary::modelsummary(models,
+                           stars = TRUE,
+                           coef_map = coefs,
+                           add_rows = rows,
+                           gof_omit = 'R2|Log.Lik.|RMSE',
+                           escape = FALSE,
+                           output = "gt") |>
+  gt::tab_spanner(label = 'Military Specialization', columns = 2:5)
+```
+
+\newpage
+
+## Standardized coefficients
+
+```{r results-normcoef}
+#| label: tbl-results-normcoef
+#| tbl-cap: "Standardized coefficient estimates for original model results."
+#| fig.position: 'H!'
+
+# EV 1
+df_m1 <- df_full %>%
+  dplyr::select(spec_stand,
+                milex_allies,
+                democracy,
+                interstatewar_5yrlag_binary,
+                lngdp_WDI_full,
+                cinc_MC,
+                year_base,
+                year_sq,
+                year_cube)
+
+## Year splines
+m1_spline <- lm(spec_stand ~ .,
+                data = df_m1)
+
+## Year splines + cse
+m1_splinecse <- lmtest::coeftest(m1_spline,
+                                 vcov = sandwich::vcovCL(m1_spline, factor(df_full$country)),
+                                 save = TRUE)
+
+## Year FE
+m1_yfe <- plm::plm(spec_stand ~
+                     milex_allies +
+                     democracy +
+                     interstatewar_5yrlag_binary +
+                     lngdp_WDI_full +
+                     cinc_MC,
+                   data = df_full,
+                   index = "year",
+                   model = "within")
+
+## Year FE + cse
+m1_yfecse <- lmtest::coeftest(m1_yfe,
+                              vcov = sandwich::vcovHC, type = "HC1",
+                              save = TRUE)
+
+# EV 2
+df_m2 <- df_full %>%
+  dplyr::select(spec_stand,
+                cinc_allies_ratio,
+                democracy,
+                interstatewar_5yrlag_binary,
+                lngdp_WDI_full,
+                cinc_MC,
+                year_base,
+                year_sq,
+                year_cube)
+
+## Year splines
+m2_spline <- lm(spec_stand ~ .,
+                data = df_m2)
+
+## Year splines + cse
+m2_splinecse <- lmtest::coeftest(m2_spline,
+                                 vcov = sandwich::vcovCL(m2_spline, factor(df_full$country)),
+                                 save = TRUE)
+
+## Year FE
+m2_yfe <- plm::plm(spec_stand ~
+                     cinc_allies_ratio +
+                     democracy +
+                     interstatewar_5yrlag_binary +
+                     lngdp_WDI_full +
+                     cinc_MC,
+                   data = df_full,
+                   index = "year",
+                   model = "within")
+
+## Year FE + cse
+m2_yfecse <- lmtest::coeftest(m2_yfe,
+                              vcov = sandwich::vcovHC, type = "HC1",
+                              save = TRUE)
+
+# Table
+models <- list(m1_splinecse, m1_yfecse,
+               m2_splinecse, m2_yfecse)
+
+coefs <- c("milex_allies" = "Allies' Mil Spend. (log)",
+           "cinc_allies_ratio" = "Allies' CINC Ratio",
+           "democracy1" = "Democracy",
+           "interstatewar_5yrlag_binary1" = "Interstate War (5yr lag)",
+           "lngdp_WDI_full" = "GDP (log)",
+           "cinc_MC" = "CINC")
+
+rows <- tibble::tribble(~term, ~'(1)', ~'(2)', ~'(3)', ~'(4)',
+                        'Time trend', 'Cubic poly', 'Year FE', 'Cubic poly', 'Year FE',
+                        'Robust SE', 'Yes', 'Yes', 'Yes', 'Yes')
+attr(rows, 'position') <- c(14, 15)
+
+modelsummary::modelsummary(models,
+                           stars = TRUE,
+                           standardize = "basic",
+                           coef_map = coefs,
+                           add_rows = rows,
+                           gof_omit = 'R2|Log.Lik.|RMSE',
+                           escape = FALSE,
+                           output = "gt") |>
+  gt::tab_spanner(label = 'Military Specialization', columns = 2:5)
+```
+
+## Fractional logit and beta regression
+
+Since the original dependent variable is continuous, but bounded between \[0, 1\] we can use a quasi-binomial fractional logistic regression [@papke_econometricmethodsfractional_1996]. The coefficients cannot be compared to the original model because they are provided on a log odds scale and can instead be interpreted as percentage change in the dependent variable predicted by a one unit increase in the independent variable value. We can also use a beta regression treating the dependent variable as a proportion bounded between (0, 1) non-inclusive [@grun_extendedbetaregression_2012]. Coefficients for the beta regression are similarly on a logit scale. Since the actual dependent variable does include values of 0, we transform it using the modification suggested by @smithson_betterlemonsqueezer_2006. I do not report these as the primary results supporting the theory because of concerns about bias introduced by the lack of a normalizing constant in the fractional logit [@loaiza-ganem_continuousbernoullifixing_2019, @kubinec_stopusingfractional_2023]. The results from these models (with and without robust standard errors for the fractional logit) are provided in @tbl-results-fracbeta and are consistent with the original results provided in the manuscript.[^2] Both independent variables retain statistical significance in the expected direction and of comparable magnitudes.
+
+[^2]: As the beta regression is a distributional, rather than mean-focused regression, it provides a precision parameter that is omitted here [@kneib_ragemeanreview_2021].
+
+\newpage
+
+```{r results-fracbeta}
+#| label: tbl-results-fracbeta
+#| tbl-cap: "Fractional logit and beta regression results"
+#| fig.position: 'H!'
+
+# Frac logit
+## EV1
+m1_flogit <- glm(spec_intscale ~
+                   milex_allies +
+                   democracy +
+                   interstatewar_5yrlag_binary +
+                   lngdp_WDI_full +
+                   cinc_MC +
+                   year_base +
+                   year_sq +
+                   year_cube,
+                 data = df_full, 
+                 family = quasibinomial())
+
+### Add robust SE
+m1_flogit_cse <- lmtest::coeftest(m1_flogit, vcov = sandwich::vcovHC, type = "HC1")
+
+## EV2
+m2_flogit <- glm(spec_intscale ~ 
+                   cinc_allies_ratio +
+                   democracy +
+                   interstatewar_5yrlag_binary +
+                   lngdp_WDI_full +
+                   cinc_MC +
+                   year_base +
+                   year_sq +
+                   year_cube,
+                 data = df_full, 
+                 family = quasibinomial())
+
+### Add robust SE
+m2_flogit_cse <- lmtest::coeftest(m2_flogit, vcov = sandwich::vcovHC, type = "HC1")
+
+# Formula to convert 0's for a beta
+svTransform <- function(y)
+{
+    n <- length(y)
+    transformed <- (y * (n - 1) + 0.5)/n
+    return(transformed)
+}
+
+## Transform DV
+df_full <- df_full %>%
+  dplyr::mutate(spec_fentrop_fix = svTransform(df_full$spec_intscale))
+
+## EV 1
+m1_beta <- betareg::betareg(spec_fentrop_fix ~ 
+                              milex_allies +
+                              democracy +
+                              interstatewar_5yrlag_binary +
+                              lngdp_WDI_full +
+                              cinc_MC +
+                              year_base +
+                              year_sq +
+                              year_cube, 
+                            data = df_full, 
+                            link = "logit")
+
+## EV 2
+m2_beta <- betareg::betareg(spec_fentrop_fix ~ 
+                              cinc_allies_ratio +
+                              democracy +
+                              interstatewar_5yrlag_binary +
+                              lngdp_WDI_full +
+                              cinc_MC +
+                              year_base +
+                              year_sq +
+                              year_cube,
+                   data = df_full, 
+                   link = "logit")
+
+# Table of results
+models <- list(m1_flogit,
+               m1_flogit_cse,
+               m1_beta,
+               m2_flogit,
+               m2_flogit_cse,
+               m2_beta)
+
+coefs <- c("milex_allies" = "Allies' Mil Spend. (log)",
+           "cinc_allies_ratio" = "Allies' CINC Ratio",
+           "democracy1" = "Democracy",
+           "interstatewar_5yrlag_binary1" = "Interstate War (5yr lag)",
+           "lngdp_WDI_full" = "GDP (log)",
+           "cinc_MC" = "CINC")
+
+rows <- tibble::tribble(~term, ~'Model 1', ~'Model 2', ~'Model 3', ~'Model 4', ~'Model 5', ~'Model 6',
+                  'Robust SE', 'No', 'Yes', 'No', 'No', 'Yes', 'No')
+attr(rows, 'position') <- c(13)
+
+modelsummary::modelsummary(models,
+                           stars = TRUE,
+                           coef_map = coefs,
+                           add_rows = rows,
+                           gof_omit = 'R2|Log.Lik.|RMSE|AIC|BIC',
+                           escape = FALSE,
+                           output = "markdown") %>%
+  kableExtra::add_header_above(c(" ",
+                                 "Fractional Logit" = 2,
+                                 "Beta" = 1,
+                                 "Fractional Logit" = 2,
+                                 "Beta" = 1)) %>%
+  kableExtra::kable_styling(latex_options = "scale_down")
+```
+
+\newpage
+
+## ZOIB and ordered beta regression
+
+Rather than transforming the zeros for the beta regression, we can also implemented a zero-inflated or ordered beta which models a separate data generating process for the country-years with no military specialization at all [@tang_zeroinflatedbetadistribution_2022; @kubinec_orderedbetaregression_2022]. As both models are Bayesian, the table specifies only confidence intervals since there are no other analogues for frequentist statistics.
+
+```{r bayes, results = "hide"}
+# Zero-inflated beta
+## EV1
+m1_zoib <- brms::brm(brms::bf(spec_intscale ~
+                                milex_allies +
+                                democracy +
+                                interstatewar_5yrlag_binary +
+                                lngdp_WDI_full +
+                                cinc_MC +
+                                (1 | year_base),
+                              phi ~ 
+                                milex_allies +
+                                democracy +
+                                interstatewar_5yrlag_binary +
+                                lngdp_WDI_full +
+                                cinc_MC +
+                                (1 | year_base),
+                              zi ~ 
+                                1),
+                     data = df_full,
+                     family = brms::zero_inflated_beta(),
+                     chains = 12,
+                     iter = 2000,
+                     warmup = 1000,
+                     cores = 12,
+                     seed = 1234,
+                     backend = "cmdstanr",
+                     refresh = 0)
+
+## EV2
+m2_zoib <- brms::brm(brms::bf(spec_intscale ~
+                                cinc_allies_ratio +
+                                democracy +
+                                interstatewar_5yrlag_binary +
+                                lngdp_WDI_full +
+                                cinc_MC +
+                                (1 | year_base),
+                              phi ~ 
+                                cinc_allies_ratio +
+                                democracy +
+                                interstatewar_5yrlag_binary +
+                                lngdp_WDI_full +
+                                cinc_MC +
+                                (1 | year_base),
+                              zi ~ 
+                                1),
+                     data = df_full,
+                     family = brms::zero_inflated_beta(),
+                     chains = 12,
+                     iter = 2000,
+                     warmup = 1000,
+                     cores = 12,
+                     seed = 1234,
+                     backend = "cmdstanr",
+                     refresh = 0)
+
+# Ordered beta
+## EV 1
+m1_obr <- ordbetareg::ordbetareg(spec_intscale ~
+                                   milex_allies +
+                                   democracy +
+                                   interstatewar_5yrlag_binary +
+                                   lngdp_WDI_full +
+                                   cinc_MC +
+                                   (1 | year_base),
+                                 data = df_full,
+                                 cores = 12,
+                                 chains = 12,
+                                 iter = 2000,
+                                 backend = "cmdstanr",
+                                 refresh = 0)
+
+## EV 2
+m2_obr <- ordbetareg::ordbetareg(spec_intscale ~
+                                   cinc_allies_ratio +
+                                   democracy +
+                                   interstatewar_5yrlag_binary +
+                                   lngdp_WDI_full +
+                                   cinc_MC +
+                                   (1 | year_base),
+                                 data = df_full,
+                                 cores = 12,
+                                 chains = 12,
+                                 iter = 2000,
+                                 backend = "cmdstanr",
+                                 refresh = 0)
+```
+
+```{r results-bayes}
+#| label: tbl-results-bayes
+#| tbl-cap: "Zero-inflated (1, 3) and ordered beta (2, 4) regression results"
+#| fig-position: 'H!'
+
+# Table of results
+models <- list(m1_zoib,
+               m1_obr,
+               m2_zoib,
+               m2_obr)
+
+modelsummary::modelsummary(models,
+                           statistic = "conf.int",
+                           metrics = "none",
+                           coef_map = c("b_Intercept" = "Intercept",
+                                        "b_milex_allies" = "Allies' Mil Spend. (log)",
+                                        "b_cinc_allies_ratio" = "Allies' CINC Ratio",
+                                        "b_democracy1" = "Democracy",
+                                        "b_interstatewar_5yrlag_binary1" = "Interstate War (5yr lag)",
+                                        "b_lngdp_WDI_full" = "GDP (log)",
+                                        "b_cinc_MC" = "CINC"),
+                           output = "markdown") |>
+  kableExtra::add_header_above(c(" ",
+                                 "Zero-inflated" = 1,
+                                 "Ordered" = 1,
+                                 "Zero-inflated" = 1,
+                                 "Ordered" = 1))
+
+# brms::loo(m1_zoib, m2_zoib, m1_obr, m2_obr, compare = TRUE)
+```
+
+\newpage
+
+# Works Cited
