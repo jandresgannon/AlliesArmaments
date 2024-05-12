@@ -1,7 +1,10 @@
 ---
 title: '\singlespace Supplemental Material for _Allies as Armaments Explaining the Specialization of State Military Capabilities_'
 author:
-  - name: Anonymized
+  - name: J Andrés Gannon
+    email: "andres.gannon@gmail.com"
+    url: jandresgannon.com
+    affiliation: Vanderbilt University
 format:
   pdf:
     fig-format: png
@@ -36,6 +39,13 @@ header-includes:
 - \usepackage{siunitx}
 - \usepackage{tabularx}
 - \newunicodechar{✓}{\ding{51}}
+- \usepackage{tabularray}
+- \usepackage{float}
+- \usepackage{graphicx}
+- \usepackage{codehigh}
+- \usepackage[normalem]{ulem}
+- \UseTblrLibrary{booktabs}
+- \UseTblrLibrary{siunitx}
 - \newcommand{\beginsupplement}{
     \setcounter{table}{0}  
     \renewcommand{\thetable}{A\arabic{table}} 
@@ -50,6 +60,7 @@ library(kableExtra)
 library(magrittr)
 library(ggplot2)
 library(ggtext)
+options(modelsummary_factory_default = 'kableExtra')
 ```
 
 ```{r load data}
@@ -96,8 +107,7 @@ df_full |>
   modelsummary::datasummary_skim(Title = "Summary statistics of model variables",
                                  histogram = FALSE,
                                  fmt = 2,
-                                 output = 'markdown') |>
-  kableExtra::kable_styling(latex_options = "scale_down")
+                                 output = 'latex')
 ```
 
 ```{r}
@@ -535,13 +545,9 @@ modelsummary::modelsummary(models,
                            add_rows = rows,
                            gof_omit = 'R2|Log.Lik.|RMSE|AIC|BIC',
                            escape = FALSE,
-                           output = "markdown") %>%
-  kableExtra::add_header_above(c(" ",
-                                 "Fractional Logit" = 2,
-                                 "Beta" = 1,
-                                 "Fractional Logit" = 2,
-                                 "Beta" = 1)) %>%
-  kableExtra::kable_styling(latex_options = "scale_down")
+                           output = "gt") |>
+  gt::tab_spanner(label = 'Fractional Logit', columns = c(2, 3, 5, 6)) |>
+  gt::tab_spanner(label = 'Beta', columns = c(4, 7))
 ```
 
 \newpage
@@ -659,12 +665,9 @@ modelsummary::modelsummary(models,
                                         "b_interstatewar_5yrlag_binary1" = "Interstate War (5yr lag)",
                                         "b_lngdp_WDI_full" = "GDP (log)",
                                         "b_cinc_MC" = "CINC"),
-                           output = "markdown") |>
-  kableExtra::add_header_above(c(" ",
-                                 "Zero-inflated" = 1,
-                                 "Ordered" = 1,
-                                 "Zero-inflated" = 1,
-                                 "Ordered" = 1))
+                           output = "gt") |>
+  gt::tab_spanner(label = 'Zero-inflated', columns = c(2, 4)) |>
+  gt::tab_spanner(label = 'Ordered', columns = c(3, 5))
 
 # brms::loo(m1_zoib, m2_zoib, m1_obr, m2_obr, compare = TRUE)
 ```
