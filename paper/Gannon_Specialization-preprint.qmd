@@ -8,7 +8,7 @@ author:
 format:
   pdf:
     fig-format: png
-    thanks: The author is thankful to many who provided feedback on earlier and related drafts, including but not limited to Steven Brooks, Rosella Cappella Zielinski, Jonathan Cavereley, Rex Douglass, Ben Fordham, Erik Gartzke, Stacie Goddard, Nadiya Kostyuk, Kendrick Kuo, David Lake, Ashley Leeds, Erik Lin-Greenberg, Paul MacDonald, Michaela Mattes, Steven Miller, Sara Plana, Paul Poast, Abigail Post, Philip Roeder, Sebastian Rosato, Erik Sand, Thomas Leo Scherer, Kaija Schilde, Todd Sechser, Branislav Slantchev, Jennifer Spindel, Sanne Verschuren, and many others. This project could not have happened without help from the many research assistants that developed the rDMC dataset. This project benefited from financial support from the UC San Diego Center for Peace and Security Studies (cPASS), Harvard Kennedy School Belfer Center for Science and International Affairs, the Smith Richardson Foundation, Stanton Nuclear Foundation, the Department of Defense Minerva Initiative, the Charles Koch Foundation, and the APSA Centennial Center.
+    thanks: The author is thankful to many who provided feedback on earlier and related drafts, including but not limited to Steven Brooks, Rosella Cappella Zielinski, Jonathan Caverley, Rex Douglass, Ben Fordham, Erik Gartzke, Stacie Goddard, Nadiya Kostyuk, Kendrick Kuo, David Lake, Ashley Leeds, Erik Lin-Greenberg, Paul MacDonald, Michaela Mattes, Steven Miller, Sara Plana, Paul Poast, Abigail Post, Philip Roeder, Sebastian Rosato, Erik Sand, Thomas Leo Scherer, Kaija Schilde, Todd Sechser, Branislav Slantchev, Jennifer Spindel, Sanne Verschuren, and many others. This project could not have happened without help from the many research assistants that developed the rDMC dataset. This project benefited from financial support from the UC San Diego Center for Peace and Security Studies (cPASS), Harvard Kennedy School Belfer Center for Science and International Affairs, the Smith Richardson Foundation, Stanton Nuclear Foundation, the Department of Defense Minerva Initiative, the Charles Koch Foundation, and the APSA Centennial Center.
     number-sections: true
     fontsize: "12"
 editor: visual
@@ -227,7 +227,7 @@ df_full |>
   scale_x_continuous(breaks = scales::pretty_breaks(7)) +
   labs(title = "Specialization of Distribution of Military Capabilities (DMC)",
        x = "Specialization",
-       y = "Number of country-year observations") +
+       y = "Number of Country-Year Observations") +
   theme_classic() +
   theme(text = element_text(size = 10))
 ```
@@ -472,8 +472,8 @@ df_long |>
         legend.title = element_blank(),
         axis.title.y = element_blank()) +
   scale_color_brewer(palette = "Dark2") +
-  labs(title = "Changes in Japan's military, 1982 to 2000",
-       x = "Normalized Distance from Annual Global Mean")
+  labs(title = "Changes in Japan's Military, 1982 to 2000",
+       x = "Normalized Distance From Annual Global Mean")
 ```
 
 This example is presented to illustrate the marginal effect of a stronger alliance relationship and what a `r marginaleffects::avg_comparisons(m2_spline, variables = list(cinc_allies_ratio = "sd")) |> dplyr::pull(estimate) |> round(2)` increase in specialization might look like in reality. But of course, changes in Japan's alliances, nonetheless that with just the US, cannot explain all the specialization we observe in this time period This example also demonstrates other potential explanations as avenues for future research. Japan's anti-tank artillery appear to be replaced by anti-tank missiles, for example, possibly representing technological innovation decisions afforded to highly developed countries. Furthermore, the figure compares Japan's military to the global average as a simplified visualization that maps onto the more complex algorithm used to develop the dependent variable. But that does not tell us whether Japan's increased specializations are all complementary with the shifts happening in the US military or whether they are emulating them. Some can be identified anecdotally, since the US reduced minesweepers while Japan maintained more than the global average and the US tripled its air defence platforms while Japan opted to have closer to the average state. On the other hand, Japan's increased specialization in maritime destroyers and fighter aircraft seems to be specialization that could be seen as redundant with recognized US strengths in large naval vessels and air to air combat. This could be the product of emulation, although it would only explain alliance-induced emulation rather than the total variation we see in degrees of specialization, or it could represent the fact that the US and Japan have multiple allies and non-identical national interests that may mean there is unexplained variation based on the type of alliance [@kostyuk_alliesdiffusionstate_2024]. As the dependent variable is monadic, pairwise similarities in *type* of specialization cannot be determined here, simply a state's relative degree of specialization. But the significance of this observation identifies an important avenue for future research - the degree to which specialization at the dyad or alliance-level is complementary.

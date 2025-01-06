@@ -11,7 +11,7 @@ format:
     toc: false
     number-sections: true
     fig-pos: H
-editor: visual
+editor: source
 execute:
   echo: false
   warning: false
