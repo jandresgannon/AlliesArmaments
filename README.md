@@ -1,5 +1,5 @@
 
-[Gannon, J Andrés](https://jandresgannon.com/). Allies as Armaments: Explaining the Specialization of State Military Capabilities.” _Security Studies_, (Forthcoming).
+[Gannon, J Andrés](https://jandresgannon.com/). "Allies as Armaments: Explaining the Specialization of State Military Capabilities." _Security Studies_, 34(1). https://doi.org/10.1080/09636412.2025.2467140
 
 ## The Paper:
 
